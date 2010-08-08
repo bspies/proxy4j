@@ -1,24 +1,22 @@
-package org.proxy4j.core.cglib;
+package org.proxy4j.core.javassist;
 
-import net.sf.cglib.proxy.MethodProxy;
 import org.proxy4j.core.ProxyInvocation;
 
 import java.lang.reflect.Method;
 
 /**
- * A CGLIB implementation of {@link org.proxy4j.core.ProxyInvocation}.
+ * <p>A Javassist implementation of {@link ProxyInvocation}.</p>
+ * @author Brennan Spies
  */
-class CglibProxyInvocation<T> implements ProxyInvocation<T>
+public class JavassistProxyInvocation<T> implements ProxyInvocation<T>
 {
     private T proxy;
     private Method method;
-    private MethodProxy methodProxy;
     private Object[] args;
 
-    CglibProxyInvocation(T proxy, Method method, MethodProxy methodProxy, Object[] args) {
+    public JavassistProxyInvocation(T proxy, Method method, Object[] args) {
         this.proxy = proxy;
         this.method = method;
-        this.methodProxy = methodProxy;
         this.args = args;
     }
 
@@ -26,7 +24,7 @@ class CglibProxyInvocation<T> implements ProxyInvocation<T>
      * {@inheritDoc}
      */
     public Object invoke(T target) throws Throwable {
-        return methodProxy.invoke(target, args);
+        return method.invoke(target, args);
     }
 
     /**

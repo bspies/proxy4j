@@ -3,10 +3,10 @@ package org.proxy4j.core;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.proxy4j.core.util.DefaultNamingPolicy;
 import org.proxy4j.core.util.NamingPolicy;
-import org.proxy4j.core.util.Visibility;
 
 import javax.inject.Inject;
 import java.lang.annotation.Annotation;
+import java.lang.ref.WeakReference;
 
 /**
  * <p>Abstract base implementation of {@link ProxyFactory}.</p>
@@ -14,9 +14,8 @@ import java.lang.annotation.Annotation;
  */
 public abstract class BaseProxyFactory implements ProxyFactory
 {
-    private ClassLoader preferredClassLoader;
+    private WeakReference<ClassLoader> preferredClassLoader;
     private NamingPolicy namingPolicy = new DefaultNamingPolicy();
-    private Visibility methodVisibility = Visibility.PUBIC;
 
     /**
      * Default constructor with no preferred class loader.
@@ -30,7 +29,7 @@ public abstract class BaseProxyFactory implements ProxyFactory
      */
     public BaseProxyFactory(ClassLoader preferredClassLoader) {
         this();
-        this.preferredClassLoader = preferredClassLoader;
+        this.preferredClassLoader = new WeakReference<ClassLoader>(preferredClassLoader);
     }
 
     /**
@@ -52,31 +51,12 @@ public abstract class BaseProxyFactory implements ProxyFactory
     }
 
     /**
-     * Returns the method visibility used as a criterion for proxying.
-     * By default, it is {@code PUBLIC}.
-     * @return The method visibility
-     */
-    protected Visibility getMethodVisibility() {
-        return methodVisibility;
-    }
-
-    /**
-     * Sets the method visibility. This property is <i>optional</i>: subclasses
-     * may choose not to support custom proxy class names.
-     * @param visibility The visibility to set
-     */
-    @Inject
-    public void setMethodVisibility(Visibility visibility) {
-        this.methodVisibility = visibility;
-    }
-
-    /**
      * Returns the specified {@link ClassLoader} that is used to define any
      * proxy interfaces.
      * @return The {@code ClassLoader} used to define proxy interfaces 
      */
     protected ClassLoader getPreferredClassLoader() {
-        return preferredClassLoader;
+        return preferredClassLoader==null ? null : preferredClassLoader.get();
     }
 
     /**
