@@ -1,7 +1,6 @@
 package org.proxy4j.core.util;
 
 import java.lang.ref.WeakReference;
-import java.util.Arrays;
 
 /**
  * <p>Base class for compound keys used in caching proxy types.</p>

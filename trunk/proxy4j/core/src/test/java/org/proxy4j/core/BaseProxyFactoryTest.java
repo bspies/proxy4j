@@ -3,7 +3,10 @@ package org.proxy4j.core;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.junit.Test;
-import org.proxy4j.core.cglib.CglibProxyFactory;
+import org.proxy4j.core.testobj.OtherTarget;
+import org.proxy4j.core.testobj.Target;
+import org.proxy4j.core.testobj.TestMarker;
+import org.proxy4j.core.testobj.TestTarget;
 
 import java.util.ArrayList;
 import java.util.List;

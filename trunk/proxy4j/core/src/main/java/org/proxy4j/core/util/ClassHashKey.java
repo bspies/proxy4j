@@ -1,5 +1,7 @@
 package org.proxy4j.core.util;
 
+import org.proxy4j.core.struct.WeakHashSet;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Set;

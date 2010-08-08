@@ -1,4 +1,4 @@
-package org.proxy4j.core.util;
+package org.proxy4j.core.struct;
 
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;

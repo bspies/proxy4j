@@ -6,7 +6,7 @@ import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.NoOp;
 import net.sf.cglib.reflect.FastClass;
 import org.proxy4j.core.GenerationException;
-import org.proxy4j.core.util.IdentityHashSet;
+import org.proxy4j.core.struct.IdentityHashSet;
 
 import java.lang.reflect.Method;
 import java.util.*;
@@ -56,7 +56,7 @@ class ProxyCreator<T>
        return callbackSet.toArray(new Callback[callbackSet.size()]); 
     }
 
-    //TODO replace with MethodExtractor
+    //TODO replace with BasicMethodExtractor
     private Collection<Method> getMethods(Class<?> superType, Class<?>[] interfaces) {
         ArrayList<Method> mlist = new ArrayList<Method>();
         Enhancer.getMethods(superType, interfaces, mlist);
