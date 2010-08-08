@@ -10,12 +10,10 @@ import java.util.*;
  * e.g. accessing annotations in {@link org.proxy4j.core.filter.AnnotationFilter method filters}.</p>
  * @author Brennan Spies
  */
-public class InheritableMethodExtractor extends BaseMethodExtractor
+public class InheritableMethodExtractor extends UnitypeMethodExtractor
 {
     private Class<?> superType;
     private Map<Method,Method> methodPairMap;
-    private Class<?> owningType;
-    private String owningPackageName;
 
     /**
      * Creates a {@code MethodExtractor} with a super type that acts as an additional
@@ -26,6 +24,7 @@ public class InheritableMethodExtractor extends BaseMethodExtractor
      * @param <T> The {@link java.lang.reflect.Type Type} of the method class
      */
     public <T> InheritableMethodExtractor(Class<T> owningType, Class<? super T> superType) {
+       super(owningType);
        this.superType = superType;
        this.methodPairMap = new TreeMap<Method,Method>(SignatureKey.methodComparator());
        buildMethodMap();
@@ -83,22 +82,6 @@ public class InheritableMethodExtractor extends BaseMethodExtractor
                methods.add(m);
         }
         return methods;
-    }
-
-    /**
-     * Returns the package of the owning type.
-     * @return The package
-     */
-    protected String getOwningPackageName() {
-        return owningPackageName;
-    }
-
-    /**
-     * Returns the primary/owning type of the methods to be proxied.
-     * @return The owning type
-     */
-    protected Class<?> getOwningType() {
-        return owningType;
     }
 
     /**
