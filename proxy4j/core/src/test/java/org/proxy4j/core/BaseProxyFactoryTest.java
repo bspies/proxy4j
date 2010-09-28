@@ -34,7 +34,7 @@ public abstract class BaseProxyFactoryTest
     public void testCreateProviderProxy() throws Exception {
         ProxyFactory factory = getImplementation();
         LazyTargetProvider targetProvider = new LazyTargetProvider();
-        TestTarget targetProxy = factory.createProxy(TestTarget.class, targetProvider);
+        Target targetProxy = factory.createProxy(Target.class, targetProvider);
         assertFalse("Creating proxy should not create target", targetProvider.isInitialized());
         //now initialize by calling method
         assertEquals("Target count should be 0", targetProxy.getCount(), 0);
@@ -49,7 +49,7 @@ public abstract class BaseProxyFactoryTest
 	@Test
 	public void testCreateHandlerProxy() throws Exception {
         ProxyFactory factory = getImplementation();
-        TestTarget targetProxy = factory.createProxy(TestTarget.class, new TestProxyHandler());
+        Target targetProxy = factory.createProxy(Target.class, new TestProxyHandler());
         assertEquals("Target count should be 0", targetProxy.getCount(), 0);
         targetProxy.increment();
         assertEquals("Target count should be 1", targetProxy.getCount(), 1);

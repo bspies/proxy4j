@@ -17,7 +17,7 @@ class JdkProxyInvocation<T> implements ProxyInvocation<T>
     JdkProxyInvocation(T proxy, Method method, Object[] args) {
         this.proxy = proxy;
         this.method = method;
-        this.args = args;
+        this.args = args!=null ? args : new Object[0];
     }
 
     public Object invoke(Object target) throws Throwable {
