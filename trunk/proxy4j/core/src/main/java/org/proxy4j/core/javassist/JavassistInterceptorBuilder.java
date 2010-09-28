@@ -41,7 +41,7 @@ public class JavassistInterceptorBuilder<T> implements InterceptorBuilder<T>
         return new JavassistInterceptorBindingBuilder();
     }
 
-    private class AbstractBindingBuilder
+    private static class AbstractBindingBuilder
     {
        private Map<Method,InterceptorChain> methodMap;
 

@@ -1,5 +1,6 @@
 package org.proxy4j.core;
 
+import org.proxy4j.core.testobj.Target;
 import org.proxy4j.core.testobj.TestTarget;
 
 import java.lang.reflect.Method;
@@ -12,19 +13,19 @@ import static org.junit.Assert.*;
  * <p>Test implementation of {@link ProxyHandler}</p>
  * @author Brennan Spies
  */
-public class TestProxyHandler implements ProxyHandler<TestTarget>
+public class TestProxyHandler implements ProxyHandler<Target>
 {
-    private TestTarget target = new TestTarget();
+    private Target target = new TestTarget();
     private Map<Method,Integer> methods = new HashMap<Method,Integer>();
 
     public TestProxyHandler() {
-       for(Method m : target.getClass().getDeclaredMethods()) {
+       for(Method m : Target.class.getDeclaredMethods()) {
            methods.put(m, m.getParameterTypes().length);
        }
     }
 
     //handles method invocation
-    public Object handle(ProxyInvocation<TestTarget> testTargetProxyInvocation) throws Throwable {
+    public Object handle(ProxyInvocation<Target> testTargetProxyInvocation) throws Throwable {
         Method m = testTargetProxyInvocation.getMethod();
         assertTrue("Method " + m.getName() + " not in TestTarget",
             methods.keySet().contains(testTargetProxyInvocation.getMethod()));

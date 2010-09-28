@@ -6,7 +6,6 @@ import java.util.EnumSet;
 /**
  * <p></p>
  * @author Brennan Spies
- *
  */
 public abstract class UnitypeMethodExtractor extends BaseMethodExtractor
 {
