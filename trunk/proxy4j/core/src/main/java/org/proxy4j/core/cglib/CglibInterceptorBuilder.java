@@ -149,7 +149,6 @@ class CglibInterceptorBuilder<T> implements InterceptorBuilder<T>
     {
         private CallbackMapper mapper;
 
-        @SuppressWarnings("unchecked")
         CglibInterceptorCreator(CallbackMapper mapper) {
             this.mapper = mapper;
         }
