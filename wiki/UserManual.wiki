@@ -90,7 +90,7 @@ You can also use method annotations instead of the method filter to specify whic
                    .create();
 }}}
 
-= ProxyFactory Implementations =
+= Proxy Implementations =
 
 Proxy4J currently supports the following implementations:
   * [http://cglib.sourceforge.net/ CGLIB] is a byte-code manipulation library built on top of [http://asm.ow2.org/ ASM]. It is supported in Proxy4J through the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/cglib/CglibProxyFactory.java CglibProxyFactory] implementation.
