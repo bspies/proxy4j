@@ -27,12 +27,15 @@ For example, creating a lazily-loaded proxy is as easy as creating a virtual pro
      }
   });
 }}}
+The LazyProvider also uses double-checked locking to provide thread safety.
 
-= Virtual Proxies =
+= Proxy Styles =
+
+== Virtual Proxies ==
 
 Virtual proxies in Proxy4J use the javax.inject.Provider interface to provide a level of indirection in fetching or creating the "real subject" of the proxy. Use of this interface also has the added benefit of allowing the reuse of existing dependency injection bindings in Spring or Guice. As shown in the example above, the canonical use case for virtual proxies is lazy loading.
 
-= Invocation Handlers =
+== Invocation Handlers ==
 
 
 
