@@ -101,7 +101,7 @@ Proxy4J currently supports the following implementations:
 
 All implementations of ProxyFactory extend the abstract base class [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/BaseProxyFactory.java BaseProxyFactory], which allows you to specify a preferred ClassLoader. This is specified as a constructor argument in each concrete implementation of ProxyFactory.
 
-There is also a qualifying annotation, [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/ProxyLoader.java @ProxyLoader], that allows you to automatically inject this ClassLoader when using JSR-330 compliant dependency injection.
+There is also a qualifying annotation, [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/ProxyLoader.java @ProxyLoader], that allows you to automatically inject this ClassLoader when using JSR-330 compliant dependency injection:
 {{{
   binder.bind(ClassLoader.class)
     .annotatedWith(ProxyLoader.class)
