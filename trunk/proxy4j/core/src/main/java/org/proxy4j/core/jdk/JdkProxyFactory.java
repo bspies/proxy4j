@@ -3,6 +3,7 @@ package org.proxy4j.core.jdk;
 import org.proxy4j.core.BaseProxyFactory;
 import org.proxy4j.core.GenerationException;
 import org.proxy4j.core.ProxyHandler;
+import org.proxy4j.core.ProxyLoader;
 import org.proxy4j.core.build.InterceptorBuilder;
 
 import javax.inject.Inject;
@@ -23,7 +24,7 @@ public class JdkProxyFactory extends BaseProxyFactory
     }
 
     @Inject
-    public JdkProxyFactory(ClassLoader loader) {
+    public JdkProxyFactory(@ProxyLoader ClassLoader loader) {
         super(loader);
     }
 
