@@ -28,10 +28,19 @@ For example, creating a lazily-loaded proxy is as easy as creating a virtual pro
   });
 }}}
 
+= Virtual Proxies =
+
+Virtual proxies in Proxy4J use the javax.inject.Provider interface to provide a level of indirection in fetching or creating the "real subject" of the proxy. Use of this interface also has the added benefit of allowing the reuse of existing dependency injection bindings in Spring or Guice. As shown in the example above, the canonical use case for virtual proxies is lazy loading.
+
+= Invocation Handlers =
+
+
+
 = ProxyFactory Implementations =
 
 Proxy4J currently supports the following implementations:
   * [http://cglib.sourceforge.net/ CGLIB] is a byte-code manipulation library built on top of [http://asm.ow2.org/ ASM]. It is supported in Proxy4J through the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/cglib/CglibProxyFactory.java CglibProxyFactory] implementation.
+  * [http://www.csg.is.titech.ac.jp/~chiba/javassist/ Javassist] is a lightweight Java runtime compiler and bytecode manipulation library. It is supported in Proxy4J through the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/javassist/JavassistProxyFactory.java JavassistProxyFactory] implementation.
 
 = Custom Classloaders =
 
