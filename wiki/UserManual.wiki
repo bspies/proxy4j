@@ -107,3 +107,38 @@ There is also a qualifying annotation, [http://code.google.com/p/proxy4j/source/
     .annotatedWith(ProxyLoader.class)
     .toInstance(myBridgeClassLoader);
 }}}
+
+= Dependencies =
+
+Proxy4J has a hard dependency on both the aopalliance and jsr-330 jars. Using other dependencies depends on which implementation of ProxyFactory you are using.
+
+Your Maven pom.xml will look something like this:
+{{{
+  <dependencies>
+    <dependency>
+        <groupId>javax.inject</groupId>
+        <artifactId>javax.inject</artifactId>
+        <version>1</version>
+        <type>jar</type>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>aopalliance</groupId>
+        <artifactId>aopalliance</artifactId>
+        <version>1.0</version>
+    </dependency>
+    <!-- Only need if using CglibProxyFactory -->
+    <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib</artifactId>
+        <version>${cglib.version}</version>
+        </dependency>
+    <!-- Only need if using JavassistProxyFactory -->
+    <dependency>
+        <groupId>javassist</groupId>
+        <artifactId>javassist</artifactId>
+        <version>${javassist.version}</version>
+    </dependency>
+  </dependencies>
+}}}
+Here ${cglib.version} and ${javassist.version} will generally be the most recent versions of those libraries.
