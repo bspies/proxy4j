@@ -8,7 +8,7 @@ Proxy4J is designed for creating proxies in Java with a high degree of flexibili
 
 = Getting Started =
 
-The centerpiece of the Proxy4J library is the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/ProxyFactory.java ProxyFactory] interface for creating proxies. So the first step is to create an instance of an implementation for this interface:
+The centerpiece of the Proxy4J library is the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/ProxyFactory.java ProxyFactory] interface for creating proxies. So the first step in creating a proxy is to create an instance of an implementation for this interface:
 {{{
    ProxyFactory proxyFactory = new CglibProxyFactory();
 }}}
