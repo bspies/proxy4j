@@ -16,7 +16,7 @@ Of course, you may also use dependency injection to specify the desired implemen
 {{{
    ProxyFactory proxyFactory = Injector.create(ProxyFactory.class);
 }}}
-Then, to create the desired proxy, simply invoke the desired createProxy() method on the ProxyFactory, or use the buildInterceptor() fluent API to create a custom method interceptor.
+Then, to create the desired proxy, simply invoke the desired createProxy() method on the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/ProxyFactory.java ProxyFactory], or use the buildInterceptor() fluent API to create a custom method interceptor.
 
 For example, creating a lazily-loaded proxy is as easy as creating a virtual proxy by passing in the appropriate [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/init/LazyProvider.java LazyProvider]:
 
@@ -27,6 +27,11 @@ For example, creating a lazily-loaded proxy is as easy as creating a virtual pro
      }
   });
 }}}
+
+= ProxyFactory Implementations =
+
+Proxy4J currently supports the following implementations:
+  * [http://cglib.sourceforge.net/ CGLIB] is a byte-code manipulation library built on top of [http://asm.ow2.org/ ASM]. It is supported in Proxy4J through the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/cglib/CglibProxyFactory.java CglibProxyFactory] implementation.
 
 = Custom Classloaders =
 
