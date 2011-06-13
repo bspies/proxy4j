@@ -53,7 +53,7 @@ In most cases, you will only want to proxy a single class/interface so you can u
 
 == Interceptors ==
 
-Method interceptors in Proxy4J are both powerful and flexible, as they allow both multiple interceptors to be defined as well as the specification of different interceptors for different methods on a given class.
+Method interceptors in Proxy4J are both powerful and flexible, as they allow multiple interceptors to be defined on a method as well as the specification of different interceptors for different methods on a given class.
 
 If we define the class Foo as follows,
 {{{
@@ -64,6 +64,22 @@ If we define the class Foo as follows,
   }
 }}}
 
+We can now intercept any method on Foo by doing the following:
+{{{
+  Foo fooProxy = proxyFactory.buildInterceptor(Foo.class)
+                   .on(new FooImpl())
+                   .using()
+                   .create();
+}}}
+
+Here the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/filter/MethodFilter.java MethodFilter] is defined to proxy all methods that begin with "do":
+{{{
+  public class AcceptDoMethodFilter implements MethodFilter {
+    public boolean accept(Method method) {
+      return method.getName().startsWith("do");
+    }
+  }
+}}}
 
 = ProxyFactory Implementations =
 
