@@ -64,21 +64,30 @@ If we define the class Foo as follows,
   }
 }}}
 
-We can now intercept any method on Foo by doing the following:
+We can now intercept any method on Foo that starts with "do" by writing the following:
 {{{
   Foo fooProxy = proxyFactory.buildInterceptor(Foo.class)
                    .on(new FooImpl())
-                   .using()
+                   .using(new AcceptDoMethodFilter(), new MyInterceptor())
                    .create();
 }}}
 
-Here the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/filter/MethodFilter.java MethodFilter] is defined to proxy all methods that begin with "do":
+Here the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/filter/MethodFilter.java MethodFilter] is defined as follows:
 {{{
   public class AcceptDoMethodFilter implements MethodFilter {
     public boolean accept(Method method) {
       return method.getName().startsWith("do");
     }
   }
+}}}
+The second argument to using() here is a variable-length argument that can take multiple implementations of org.aopalliance.intercept.MethodInterceptor.
+
+You can also use method annotations instead of the method filter to specify which methods should be proxied:
+{{{
+  Foo fooProxy = proxyFactory.buildInterceptor(Foo.class)
+                   .on(new FooImpl())
+                   .using(MyAnnotation.class, new MyInterceptor())
+                   .create();
 }}}
 
 = ProxyFactory Implementations =
