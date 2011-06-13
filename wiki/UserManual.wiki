@@ -80,7 +80,7 @@ Here the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/
     }
   }
 }}}
-The second argument to using() here is a variable-length argument that can take multiple implementations of org.aopalliance.intercept.MethodInterceptor.
+The second argument to using() here is a variable-length argument that can take multiple implementations of org.aopalliance.intercept.MethodInterceptor. A variation of the using() method allows you to use a [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/InterceptorFactory.java InterceptorFactory] to generate the interceptors instead.
 
 You can also use method annotations instead of the method filter to specify which methods should be proxied:
 {{{
