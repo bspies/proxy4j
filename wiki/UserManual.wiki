@@ -22,7 +22,7 @@ For example, creating a lazily-loaded proxy is as easy as creating a virtual pro
 {{{
   Foo fooProxy = proxyFactory.createProxy(Foo.class, new LazyProvider<Foo>() {
      @Override protected Foo init() {
-        return new Foo();
+        return new FooImpl();
      }
   });
 }}}
@@ -53,7 +53,17 @@ In most cases, you will only want to proxy a single class/interface so you can u
 
 == Interceptors ==
 
-Method interceptors in Proxy4J 
+Method interceptors in Proxy4J are both powerful and flexible, as they allow both multiple interceptors to be defined as well as the specification of different interceptors for different methods on a given class.
+
+If we define the class Foo as follows,
+{{{
+  public interface Foo {
+    public void doSomething();
+    public void doSomethingElse();
+    public void doSomethingProtected();
+  }
+}}}
+
 
 = ProxyFactory Implementations =
 
