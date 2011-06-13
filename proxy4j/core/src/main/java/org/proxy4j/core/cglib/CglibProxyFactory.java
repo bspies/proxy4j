@@ -8,6 +8,7 @@ import net.sf.cglib.reflect.FastClass;
 import org.proxy4j.core.BaseProxyFactory;
 import org.proxy4j.core.GenerationException;
 import org.proxy4j.core.ProxyHandler;
+import org.proxy4j.core.ProxyLoader;
 import org.proxy4j.core.build.InterceptorBuilder;
 
 import javax.inject.Inject;
@@ -28,7 +29,7 @@ public class CglibProxyFactory extends BaseProxyFactory
     }
 
     @Inject
-    public CglibProxyFactory(ClassLoader loader) {
+    public CglibProxyFactory(@ProxyLoader ClassLoader loader) {
         super(loader);
     }
 

@@ -3,6 +3,7 @@ package org.proxy4j.core.javassist;
 import org.proxy4j.core.BaseProxyFactory;
 import org.proxy4j.core.GenerationException;
 import org.proxy4j.core.ProxyHandler;
+import org.proxy4j.core.ProxyLoader;
 import org.proxy4j.core.build.InterceptorBuilder;
 
 import javax.inject.Inject;
@@ -23,7 +24,7 @@ public class JavassistProxyFactory extends BaseProxyFactory
     }
 
     @Inject
-    public JavassistProxyFactory(ClassLoader loader) {
+    public JavassistProxyFactory(@ProxyLoader ClassLoader loader) {
         super(loader);
         classGenerator = new ClassGenerator(getNamingStrategy());
         //initializes class pool for preferred loader
