@@ -1,6 +1,6 @@
 = Introduction =
 
-Proxy4J is designed for creating proxies in Java with a high degree of flexibility, both in the implementation of the proxying itself as well as in the style of the proxy itself. Currently Proxy4J supports the following proxy styles:
+Proxy4J is designed for creating proxies in Java with a high degree of flexibility, both in the implementation of the proxying itself as well as in the style of the proxy. Currently Proxy4J supports the following proxy styles:
    * *Virtual Proxies*. Also known as delegation proxies, these proxies simply pass the method invocation directly to the "real subject", which may have some indirection in how it is created or fetched (e.g. the classic lazy-loading proxy).
    * *Invocation Handlers*. These are a direct parallel to proxies in the JDK, with a slight twist to include type safety in the common case where only one interface is being proxied. Method calls on these proxies are passed to an invocation handler which decides how to handle the call.
    * *Interceptors*. These are proxies where one or more interceptors may get called prior to invoking the method on the "real subject". In Proxy4J interceptors are very granular and may be specified on a per-method basis. 
