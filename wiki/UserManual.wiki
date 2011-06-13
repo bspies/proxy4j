@@ -5,7 +5,6 @@ Proxy4J is designed for creating proxies in Java with a high degree of flexibili
    * *Invocation Handlers*. These are a direct parallel to proxies in the JDK, with a slight twist to include type safety in the common case where only one interface is being proxied. Method calls on these proxies are passed to an invocation handler which decides how to handle the call.
    * *Interceptors*. These are proxies where one or more interceptors may get called prior to invoking the method on the "real subject". In Proxy4J interceptors are very granular and may be specified on a per-method basis. 
 
-
 = Getting Started =
 
 The centerpiece of the Proxy4J library is the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/ProxyFactory.java ProxyFactory] interface for creating proxies. So the first step in creating a proxy is to create an instance of an implementation for this interface:
@@ -37,7 +36,24 @@ Virtual proxies in Proxy4J use the [http://atinject.googlecode.com/svn/trunk/jav
 
 == Invocation Handlers ==
 
-As stated above, invocation handlers in Proxy4J mirror the JDK proxy implementation. They provide the largest degree of freedom in deciding how to handle a method invocation.
+As stated above, invocation handlers in Proxy4J mirror the JDK proxy implementation. They provide the largest degree of freedom in deciding how to handle a method invocation, as well as the ability to have no "real subject" at all.
+
+In most cases, you will only want to proxy a single class/interface so you can use the type-safe version:
+{{{
+  Foo fooProxy = proxyFactory.createProxy(Foo.class, new FooProxyHandler());
+}}}
+...where FooProxyHandler is an implementation of the [http://code.google.com/p/proxy4j/source/browse/trunk/proxy4j/core/src/main/java/org/proxy4j/core/ProxyHandler.java ProxyHandler] interface:
+{{{
+  public class FooProxyHandler implements ProxyHandler<Foo> {
+    public Object handle(ProxyInvocation<Foo> invocation) throws Throwable {
+      //...
+    }
+  }
+}}}
+
+== Interceptors ==
+
+Method interceptors in Proxy4J 
 
 = ProxyFactory Implementations =
 
