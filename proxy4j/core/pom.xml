@@ -4,9 +4,10 @@
     <artifactId>proxy4j-parent</artifactId>
     <groupId>org.proxy4j</groupId>
     <version>1.0.0-SNAPSHOT</version>
+	<relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>org.proxy4j</groupId>
-  <artifactId>proxy4j</artifactId>
+  <artifactId>proxy4j-core</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>Proxy4J Core</name>
   <description>Core functionality for the Proxy4J framework</description>
