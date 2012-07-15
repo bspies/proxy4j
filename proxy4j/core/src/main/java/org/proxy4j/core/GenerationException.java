@@ -1,11 +1,12 @@
 package org.proxy4j.core;
 
 /**
- * <p>Exception indicating a failure in proxy generation.</p>
+ * Exception indicating a failure in proxy generation.
+ *
  * @author Brennan Spies
  * @since 1.0
  */
-public class GenerationException extends Exception
+public class GenerationException extends RuntimeException
 {
 	private static final long serialVersionUID = -4305043242284725626L;
 
