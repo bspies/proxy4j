@@ -3,9 +3,11 @@ package org.proxy4j.remote;
 import java.lang.annotation.*;
 
 /**
+ * Marker annotation for classes/interfaces whose public methods are remotely
+ * exportable.
+ *
  * @author Brennan Spies
- * <p>Marker annotation for classes/interfaces whose public methods are remotely
- * exportable.</p>
+ * @since 1.0
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
