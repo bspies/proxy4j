@@ -1,14 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>proxy4j-parent</artifactId>
+    <artifactId>proxy4j</artifactId>
     <groupId>org.proxy4j</groupId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${proxy4j.version}</version>
 	<relativePath>../pom.xml</relativePath>
   </parent>
-  <groupId>org.proxy4j</groupId>
   <artifactId>proxy4j-core</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
   <name>Proxy4J Core</name>
   <description>Core functionality for the Proxy4J framework</description>
   <dependencies>

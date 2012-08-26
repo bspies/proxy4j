@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.proxy4j</groupId>
-  <artifactId>proxy4j-parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <artifactId>proxy4j</artifactId>
+  <version>${proxy4j.version}</version>
   <packaging>pom</packaging>
   <name>Proxy4J</name>
   <description>A Java library for using proxies</description>
@@ -39,4 +39,7 @@
   	<module>core</module>
   	<module>remoting</module>
   </modules>
+  <properties>
+      <proxy4j.version>1.0.0-SNAPSHOT</proxy4j.version>
+  </properties>
 </project>

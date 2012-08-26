@@ -3,11 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>proxy4j-parent</artifactId>
+        <artifactId>proxy4j</artifactId>
         <groupId>org.proxy4j</groupId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>${proxy4j.version}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <groupId>org.proxy4j</groupId>
     <artifactId>proxy4j-remoting</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.proxy4j</groupId>
+            <artifactId>proxy4j-core</artifactId>
+            <version>${proxy4j.version}</version>
+        </dependency>
+    </dependencies>
 </project>
