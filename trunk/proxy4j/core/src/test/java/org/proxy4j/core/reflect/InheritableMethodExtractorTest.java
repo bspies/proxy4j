@@ -14,7 +14,7 @@ import static junit.framework.Assert.*;
 /**
  * <p>Tests to ensure that the {@link InheritableMethodExtractor} conforms to the {@code MethodExtractor}
  * interface contract, and that a {@link org.proxy4j.core.filter.MethodFilter MethodFilter} is tested against
- * both concreate and interface methods.</p>
+ * both concrete and interface methods.</p>
  * @author Brennan Spies
  */
 public class InheritableMethodExtractorTest extends BaseMethodExtractorTest
