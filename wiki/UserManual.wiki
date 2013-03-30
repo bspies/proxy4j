@@ -142,3 +142,15 @@ Your Maven pom.xml will look something like this:
   </dependencies>
 }}}
 Here ${cglib.version} and ${javassist.version} will generally be the most recent versions of those libraries.
+
+== Using With Maven ==
+
+Proxy4J-Core is currently available as a snapshot release from https://oss.sonatype.org/content/groups/public/.
+
+{{{
+<dependency>
+  <groupId>com.googlecode.proxy4j</groupId>
+  <artifactId>proxy4j-core</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+</dependency>
+}}}
