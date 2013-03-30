@@ -35,7 +35,7 @@ class ClassGenerator
     ClassGenerator(NamingPolicy namingPolicy) {
         this.namingPolicy = namingPolicy;
         try {
-            templates.load(this.getClass().getResourceAsStream("/org/proxy4j/core/javassist/template.properties"));
+            templates.load(this.getClass().getResourceAsStream("/template.properties"));
         } catch (IOException e) {
             throw new RuntimeException("Unable to load Javassist template properties", e);
         }
