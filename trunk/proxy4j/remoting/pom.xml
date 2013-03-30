@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>proxy4j</artifactId>
-        <groupId>org.proxy4j</groupId>
-        <version>${proxy4j.version}</version>
+        <groupId>com.googlecode.proxy4j</groupId>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>proxy4j-remoting</artifactId>
@@ -13,7 +13,7 @@
         <dependency>
             <groupId>org.proxy4j</groupId>
             <artifactId>proxy4j-core</artifactId>
-            <version>${proxy4j.version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
