@@ -2,9 +2,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.proxy4j</groupId>
+
+  <parent>
+      <groupId>org.sonatype.oss</groupId>
+      <artifactId>oss-parent</artifactId>
+      <version>7</version>
+  </parent>
+  <groupId>com.googlecode.proxy4j</groupId>
   <artifactId>proxy4j</artifactId>
-  <version>${proxy4j.version}</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Proxy4J</name>
   <description>A Java library for using proxies</description>
@@ -39,7 +45,40 @@
   	<module>core</module>
   	<module>remoting</module>
   </modules>
-  <properties>
-      <proxy4j.version>1.0.0-SNAPSHOT</proxy4j.version>
-  </properties>
+  <build>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-gpg-plugin</artifactId>
+              <executions>
+                  <execution>
+                      <id>sign-artifacts</id>
+                      <phase>verify</phase>
+                      <goals>
+                          <goal>sign</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+      </plugins>
+  </build>
+  <scm>
+      <connection>scm:svn:http://proxy4j.googlecode.com/svn/trunk</connection>
+      <developerConnection>scm:svn:https://proxy4j.googlecode.com/svn/trunk</developerConnection>
+      <url>http://code.google.com/p/proxy4j/source/browse/</url>
+  </scm>
+  <issueManagement>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/proxy4j/issues/</url>
+    </issueManagement>
+  <distributionManagement>
+      <repository>
+          <id>releases.oss.sonatype.org</id>
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      </repository>
+      <snapshotRepository>
+          <id>snapshots.oss.sonatype.org</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      </snapshotRepository>
+  </distributionManagement>
 </project>
