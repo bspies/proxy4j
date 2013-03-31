@@ -117,8 +117,8 @@ Your Maven pom.xml will look something like this:
   <dependencies>
     <dependency>
         <groupId>com.googlecode.proxy4j</groupId>
-        <artifactId>proxy4j-core</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <artifactId>proxy4j-${module}</artifactId>
+        <version>${proxy4j-version}</version>
     </dependency>
     <!-- Only need if using CglibProxyFactory -->
     <dependency>
