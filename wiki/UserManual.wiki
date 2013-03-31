@@ -116,16 +116,9 @@ Your Maven pom.xml will look something like this:
 {{{
   <dependencies>
     <dependency>
-        <groupId>javax.inject</groupId>
-        <artifactId>javax.inject</artifactId>
-        <version>1</version>
-        <type>jar</type>
-        <scope>compile</scope>
-    </dependency>
-    <dependency>
-        <groupId>aopalliance</groupId>
-        <artifactId>aopalliance</artifactId>
-        <version>1.0</version>
+        <groupId>com.googlecode.proxy4j</groupId>
+        <artifactId>proxy4j-core</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
     </dependency>
     <!-- Only need if using CglibProxyFactory -->
     <dependency>
