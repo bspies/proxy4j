@@ -4,8 +4,8 @@ import net.sf.cglib.core.NamingPolicy;
 import net.sf.cglib.core.Predicate;
 
 /**
- * <p>Adapts a {@link org.proxy4j.core.util.NamingPolicy NamingPolicy} for use
- * by CGLIB.</p>
+ * Adapts a {@link org.proxy4j.core.util.NamingPolicy NamingPolicy} for use
+ * by CGLIB.
  * @author Brennan Spies
  */
 public class NamingPolicyAdapter implements NamingPolicy
