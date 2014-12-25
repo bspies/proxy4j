@@ -138,12 +138,12 @@ Here ${cglib.version} and ${javassist.version} will generally be the most recent
 
 == Using With Maven ==
 
-Proxy4J-Core is currently available as a snapshot release from https://oss.sonatype.org/content/groups/public/.
+Proxy4J-Core is currently available from the Sonatype OSS releases repository: https://oss.sonatype.org/content/repositories/releases/.
 
 {{{
 <dependency>
   <groupId>com.googlecode.proxy4j</groupId>
   <artifactId>proxy4j-core</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 </dependency>
 }}}
