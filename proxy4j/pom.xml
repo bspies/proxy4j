@@ -10,7 +10,7 @@
   </parent>
   <groupId>com.googlecode.proxy4j</groupId>
   <artifactId>proxy4j</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
   <name>Proxy4J</name>
   <description>A Java library for using proxies</description>
@@ -47,9 +47,45 @@
   </modules>
   <build>
       <plugins>
-<!--          <plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>3.0</version>
+              <configuration>
+                  <source>1.6</source>
+                  <target>1.6</target>
+              </configuration>
+          </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-source-plugin</artifactId>
+              <version>2.2.1</version>
+              <executions>
+                  <execution>
+                      <id>attach-sources</id>
+                      <goals>
+                          <goal>jar-no-fork</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>2.9.1</version>
+              <executions>
+                  <execution>
+                      <id>attach-javadocs</id>
+                      <goals>
+                          <goal>jar</goal>
+                      </goals>
+                  </execution>
+              </executions>
+          </plugin>
+          <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-gpg-plugin</artifactId>
+              <version>1.5</version>
               <executions>
                   <execution>
                       <id>sign-artifacts</id>
@@ -59,14 +95,16 @@
                       </goals>
                   </execution>
               </executions>
-          </plugin>-->
+          </plugin>
           <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <version>3.0</version>
+              <groupId>org.sonatype.plugins</groupId>
+              <artifactId>nexus-staging-maven-plugin</artifactId>
+              <version>1.6.3</version>
+              <extensions>true</extensions>
               <configuration>
-                  <source>1.6</source>
-                  <target>1.6</target>
+                  <serverId>releases.oss.sonatype.org</serverId>
+                  <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                  <autoReleaseAfterClose>true</autoReleaseAfterClose>
               </configuration>
           </plugin>
       </plugins>
