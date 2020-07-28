@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  <p></p>
+ *  A cache for classes.
  * @author Brennan Spies
  */
 public class ClassCache

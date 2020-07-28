@@ -1,7 +1,7 @@
 package org.proxy4j.core.util;
 
 /**
- * <p></p>
+ * The naming policy for the proxy class.
  * @author Brennan Spies
  */
 public interface NamingPolicy {

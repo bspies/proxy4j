@@ -6,8 +6,8 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 
 /**
- * <p>Interface for any class that can extract methods from a class for the purpose
- * of proxying them.</p>
+ * Interface for any class that can extract methods from a class for the purpose
+ * of proxying them.
  * @author Brennan Spies
  */
 public interface MethodExtractor {

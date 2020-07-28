@@ -4,7 +4,7 @@ import java.lang.ref.WeakReference;
 import java.util.*;
 
 /**
- * <p></p>
+ * An array list of weak references.
  * @author Brennan Spies
  */
 public class WeakArrayList<T> extends AbstractList<T>

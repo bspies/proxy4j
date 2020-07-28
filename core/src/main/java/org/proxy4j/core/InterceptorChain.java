@@ -31,7 +31,7 @@ public class InterceptorChain implements MethodInterceptor
      * Invokes the interceptor chain.
      * @param methodInvocation The method invocation
      * @return The return value
-     * @throws Throwable
+     * @throws Throwable If an error occurs during invocation
      */
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {
         return new InterceptedMethodInvocation(methodInvocation).proceed();

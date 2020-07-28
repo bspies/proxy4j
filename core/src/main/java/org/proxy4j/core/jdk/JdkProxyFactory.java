@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * <p></p>
+ * The proxy factory implementation using the JDK proxy implementation.
  * @author Brennan Spies
  * @since 1.0
  */

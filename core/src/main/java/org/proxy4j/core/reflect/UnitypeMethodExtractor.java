@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 import java.util.EnumSet;
 
 /**
- * <p></p>
+ * Method extractor for single type.
  * @author Brennan Spies
  */
 public abstract class UnitypeMethodExtractor extends BaseMethodExtractor

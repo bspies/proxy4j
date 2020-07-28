@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Set;
 
 /**
- * <p></p>
+ * A method hash key.
  * @author Brennan Spies
  */
 public final class MethodHashKey extends Key

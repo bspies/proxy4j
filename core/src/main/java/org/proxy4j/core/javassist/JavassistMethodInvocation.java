@@ -6,7 +6,7 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
 
 /**
- * <p></p>
+ * Javassist implementation for a method invocation.
  * @author Brennan Spies
  */
 public abstract class JavassistMethodInvocation<T> implements MethodInvocation

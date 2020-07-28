@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.proxy4j.core.cglib.CglibProxyFactoryTest;
 import org.proxy4j.core.javassist.JavassistProxyFactoryTest;
+import org.proxy4j.core.jdk.JdkProxyFactoryTest;
 
 /**
  * @author Brennan Spies
@@ -12,7 +13,7 @@ import org.proxy4j.core.javassist.JavassistProxyFactoryTest;
 @Suite.SuiteClasses({
         CglibProxyFactoryTest.class,
         JavassistProxyFactoryTest.class,
-        CglibProxyFactoryTest.class
+        JdkProxyFactoryTest.class
 })
 public class ProxyImplementationsSuite {
 }

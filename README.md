@@ -170,6 +170,14 @@ Proxy4J-Core is currently available from the [Sonatype OSS releases repository](
     <dependency>
       <groupId>com.googlecode.proxy4j</groupId>
       <artifactId>proxy4j-core</artifactId>
-      <version>1.0.0</version>
+      <version>1.1.0</version>
     </dependency>
 ```
+
+Known Issues
+==============
+Using the CGLib-based proxy implementation will give warnings like the following when used with newer JDK versions (9+):
+```text
+WARNING: Illegal reflective access by net.sf.cglib.core.ReflectUtils$1
+```
+CGLib will not work at all if used with the `--illegal-access=deny` flag set.
