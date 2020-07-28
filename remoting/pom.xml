@@ -9,5 +9,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>proxy4j-remoting</artifactId>
+    <name>Proxy4J Remoting</name>
     <version>1.0.0-SNAPSHOT</version>
 </project>
