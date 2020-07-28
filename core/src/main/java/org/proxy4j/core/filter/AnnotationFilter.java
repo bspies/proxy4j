@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  */
 public class AnnotationFilter<T extends Annotation> implements MethodFilter
 {
-    private Class<T> annotation;
+    private final Class<T> annotation;
 
     private AnnotationFilter(Class<T> annotation) {
         this.annotation = annotation;

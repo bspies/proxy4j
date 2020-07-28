@@ -4,7 +4,7 @@ import net.sf.cglib.proxy.Callback;
 import java.lang.reflect.Method;
 
 /**
- * <p>Interface used by {@link ProxyCreator} to map methods to callbacks.</p>
+ * Interface used by {@link ProxyCreator} to map methods to callbacks.
  * @author Brennan Spies
  */
 interface CallbackMapper {

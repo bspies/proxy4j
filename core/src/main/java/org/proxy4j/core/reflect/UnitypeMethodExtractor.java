@@ -9,7 +9,7 @@ import java.util.EnumSet;
  */
 public abstract class UnitypeMethodExtractor extends BaseMethodExtractor
 {
-    private Class<?> owningType;
+    private final Class<?> owningType;
 
     public UnitypeMethodExtractor(Class<?> owningType) {
         this.owningType = owningType;

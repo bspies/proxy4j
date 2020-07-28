@@ -6,8 +6,8 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 /**
- * <p>A two-level {@code MethodExtractor} where the super type acts as an additional source of information,
- * e.g. accessing annotations in {@link org.proxy4j.core.filter.AnnotationFilter method filters}.</p>
+ * A two-level {@code MethodExtractor} where the super type acts as an additional source of information,
+ * e.g. accessing annotations in {@link org.proxy4j.core.filter.AnnotationFilter method filters}.
  * @author Brennan Spies
  */
 public class InheritableMethodExtractor extends UnitypeMethodExtractor

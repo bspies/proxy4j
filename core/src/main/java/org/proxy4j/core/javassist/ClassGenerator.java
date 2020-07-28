@@ -22,8 +22,8 @@ import java.util.*;
  */
 class ClassGenerator
 {
-    private NamingPolicy namingPolicy;
-    private ClassCache cache = new ClassCache();
+    private final NamingPolicy namingPolicy;
+    private final ClassCache cache = new ClassCache();
     Properties templates = new Properties();
     private final Map<ClassLoader, ClassPool> classPoolMap =
             new WeakHashMap<ClassLoader, ClassPool>();

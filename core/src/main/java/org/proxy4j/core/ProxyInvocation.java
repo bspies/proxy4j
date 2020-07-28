@@ -3,7 +3,7 @@ package org.proxy4j.core;
 import java.lang.reflect.Method;
 
 /**
- * <p>Describes a method invocation on a proxy.</p>
+ * Describes a method invocation on a proxy.
  * @author Brennan Spies
  * @since 1.0
  */

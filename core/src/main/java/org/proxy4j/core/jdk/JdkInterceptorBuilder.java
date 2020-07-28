@@ -28,8 +28,8 @@ import java.util.Map;
  */
 class JdkInterceptorBuilder<T> implements InterceptorBuilder<T> {
 
-    private ClassLoader loader;
-    private Class<T> interfaceClass;
+    private final ClassLoader loader;
+    private final Class<T> interfaceClass;
     private T target;
 
     JdkInterceptorBuilder(ClassLoader classLoader, Class<T> interfaceClass) {
@@ -45,7 +45,7 @@ class JdkInterceptorBuilder<T> implements InterceptorBuilder<T> {
 
     private static class AbstractBindingBuilder
     {
-       private Map<SignatureKey,InterceptorChain> methodMap;
+       private final Map<SignatureKey,InterceptorChain> methodMap;
 
        AbstractBindingBuilder() {
           methodMap = new LinkedHashMap<SignatureKey,InterceptorChain>();

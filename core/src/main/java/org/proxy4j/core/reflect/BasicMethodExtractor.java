@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 /**
- * <p>Extracts method information from the given type.</p>
+ * Extracts method information from the given type.
  * @author Brennan Spies
  */
 public class BasicMethodExtractor extends UnitypeMethodExtractor

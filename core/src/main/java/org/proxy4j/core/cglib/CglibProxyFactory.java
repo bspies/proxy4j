@@ -17,8 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * <p>{@link org.proxy4j.core.ProxyFactory ProxyFactory} implementation using <a href="http://cglib.sourceforge.net/">CGLIB</a>.
- * </p>
+ * {@link org.proxy4j.core.ProxyFactory ProxyFactory} implementation using <a href="http://cglib.sourceforge.net/">CGLIB</a>.
  * @author Brennan Spies
  * @since 1.0
  */

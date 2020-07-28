@@ -5,14 +5,14 @@ import org.proxy4j.core.ProxyInvocation;
 import java.lang.reflect.Method;
 
 /**
- * <p></p>
+ * JDK proxy implementation of the proxy invocation.
 * @author Brennan Spies
 */
 class JdkProxyInvocation<T> implements ProxyInvocation<T>
 {
-    private T proxy;
-    private Method method;
-    private Object[] args;
+    private final T proxy;
+    private final Method method;
+    private final Object[] args;
 
     JdkProxyInvocation(T proxy, Method method, Object[] args) {
         this.proxy = proxy;

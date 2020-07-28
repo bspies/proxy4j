@@ -7,7 +7,7 @@ import javax.inject.Provider;
 import java.lang.annotation.Annotation;
 
 /**
- * <p>A factory interface for creating different types of proxies.</p>
+ * A factory interface for creating different types of proxies.
  * @author Brennan Spies
  * @since 1.0
  */

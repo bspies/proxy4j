@@ -10,7 +10,7 @@ import net.sf.cglib.core.Predicate;
  */
 public class NamingPolicyAdapter implements NamingPolicy
 {
-    private org.proxy4j.core.util.NamingPolicy policy;
+    private final org.proxy4j.core.util.NamingPolicy policy;
 
     public NamingPolicyAdapter(org.proxy4j.core.util.NamingPolicy policy) {
        this.policy = policy; 

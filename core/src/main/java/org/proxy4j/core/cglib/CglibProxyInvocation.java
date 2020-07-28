@@ -10,10 +10,10 @@ import java.lang.reflect.Method;
  */
 class CglibProxyInvocation<T> implements ProxyInvocation<T>
 {
-    private T proxy;
-    private Method method;
-    private MethodProxy methodProxy;
-    private Object[] args;
+    private final T proxy;
+    private final Method method;
+    private final MethodProxy methodProxy;
+    private final Object[] args;
 
     CglibProxyInvocation(T proxy, Method method, MethodProxy methodProxy, Object[] args) {
         this.proxy = proxy;

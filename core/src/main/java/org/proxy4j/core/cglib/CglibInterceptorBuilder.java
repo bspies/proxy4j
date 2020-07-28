@@ -16,8 +16,8 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 /**
- * <p>CGLIB implementation of {@link InterceptorBuilder} and related intermediate
- * builders.</p>
+ * CGLIB implementation of {@link InterceptorBuilder} and related intermediate
+ * builders.
  * @author Brennan Spies
  */
 class CglibInterceptorBuilder<T> implements InterceptorBuilder<T>

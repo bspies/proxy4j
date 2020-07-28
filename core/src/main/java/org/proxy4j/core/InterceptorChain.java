@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class InterceptorChain implements MethodInterceptor
 {
-    private MethodInterceptor[] interceptors;
+    private final MethodInterceptor[] interceptors;
 
     public InterceptorChain(List<MethodInterceptor> interceptorList) {
        this.interceptors = interceptorList.toArray(new MethodInterceptor[interceptorList.size()]);

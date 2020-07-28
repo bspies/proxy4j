@@ -6,8 +6,8 @@ import java.util.Collection;
 import java.util.EnumSet;
 
 /**
- * <p>An enumeration of other modifiers besides {@link Visibility} that are of interest to
- * the {@link MethodExtractor}.</p>
+ * An enumeration of other modifiers besides {@link Visibility} that are of interest to
+ * the {@link MethodExtractor}.
  * @author Brennan Spies
  */
 public enum Modifier {

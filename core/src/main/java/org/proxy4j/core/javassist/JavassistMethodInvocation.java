@@ -11,9 +11,9 @@ import java.lang.reflect.Method;
  */
 public abstract class JavassistMethodInvocation<T> implements MethodInvocation
 {
-    private T target;
-    private String methodName;
-    private Object[] args;
+    private final T target;
+    private final String methodName;
+    private final Object[] args;
 
     public JavassistMethodInvocation(T target, String methodName, Object... args) {
        this.target = target;

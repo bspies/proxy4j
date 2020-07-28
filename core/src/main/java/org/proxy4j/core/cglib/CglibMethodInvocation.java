@@ -7,15 +7,15 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
 
 /**
- * <p>CGLIB-based implementation of {@link MethodInvocation}</p>
+ * CGLIB-based implementation of {@link MethodInvocation}
  * @author Brennan Spies
  */
 class CglibMethodInvocation implements MethodInvocation
 {
-    private Object target;
-    private Method method;
-    private MethodProxy methodProxy;
-    private Object[] args;
+    private final Object target;
+    private final Method method;
+    private final MethodProxy methodProxy;
+    private final Object[] args;
 
     CglibMethodInvocation(Object target, Method method, MethodProxy methodProxy, Object[] args) {
         this.target = target;

@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class WeakArrayList<T> extends AbstractList<T>
 {
-    private List<WeakReference<T>> internalList;
+    private final List<WeakReference<T>> internalList;
 
     public WeakArrayList() {
         internalList = new ArrayList<WeakReference<T>>();

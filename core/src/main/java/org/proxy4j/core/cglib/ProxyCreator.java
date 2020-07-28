@@ -17,8 +17,8 @@ import java.util.*;
  */
 class ProxyCreator<T>
 {
-    private ClassGenerator<T> generator;
-    private Collection<Method> methods;
+    private final ClassGenerator<T> generator;
+    private final Collection<Method> methods;
 
     ProxyCreator(ClassLoader loader, Class<T> proxyClass) {
         generator = ClassGenerator.forType(loader, proxyClass);

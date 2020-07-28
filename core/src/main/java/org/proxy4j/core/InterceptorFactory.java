@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 /**
- * <p>Factory which can be used to create per-method instances of interceptor(s).</p>
+ * Factory which can be used to create per-method instances of interceptor(s).
  * @author Brennan Spies
  * @since 1.0
  */

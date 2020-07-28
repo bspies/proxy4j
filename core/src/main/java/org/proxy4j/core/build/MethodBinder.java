@@ -5,7 +5,7 @@ import org.aopalliance.intercept.MethodInterceptor;
 import java.lang.reflect.Method;
 
 /**
- * <p>Binds a method to a chain of interceptors.</p>
+ * Binds a method to a chain of interceptors.
  * @author Brennan Spies
  */
 public interface MethodBinder<T> {

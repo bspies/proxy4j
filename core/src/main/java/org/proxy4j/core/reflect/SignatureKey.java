@@ -5,14 +5,14 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * <p>Represents a method key for methods <i>within</i> the same class
- * hierarchy.</p>
+ * Represents a method key for methods <i>within</i> the same class
+ * hierarchy.
  * @author Brennan Spies
  */
 public class SignatureKey implements Comparable<SignatureKey>
 {
-    private String name;
-    private Class<?>[] parameterTypes;
+    private final String name;
+    private final Class<?>[] parameterTypes;
 
     /**                                  
      * Creates a {@code SignatureKey} from the method.

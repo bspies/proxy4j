@@ -7,9 +7,9 @@ import org.proxy4j.core.filter.MethodFilter;
 import java.lang.annotation.Annotation;
 
 /**
- * <p>An intermediate builder used by {@link InterceptorBuilder} to bind a set of
+ * An intermediate builder used by {@link InterceptorBuilder} to bind a set of
  * methods on the target type to the given interceptors. Clients should not refer to
- * this class directly but instead use the fluent API documented {@link InterceptorBuilder here}.</p>
+ * this class directly but instead use the fluent API documented {@link InterceptorBuilder here}.
  * @author Brennan Spies
  * @since 1.0
  */

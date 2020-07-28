@@ -15,8 +15,8 @@ abstract class ClassGenerator<T>
      */
     static class SingleTypeGenerator<T> extends ClassGenerator<T>
     {
-        private ClassLoader loader;
-        private Class<T> proxyClass;
+        private final ClassLoader loader;
+        private final Class<T> proxyClass;
 
         private SingleTypeGenerator(ClassLoader loader, Class<T> proxyClass) {
            this.loader = loader;

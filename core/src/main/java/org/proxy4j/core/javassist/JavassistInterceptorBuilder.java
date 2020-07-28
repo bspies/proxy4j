@@ -24,9 +24,9 @@ import java.util.Map;
  */
 public class JavassistInterceptorBuilder<T> implements InterceptorBuilder<T>
 {
-    private ClassLoader loader;
+    private final ClassLoader loader;
     private MethodExtractor extractor;
-    private ClassGenerator generator;
+    private final ClassGenerator generator;
     private T target;
 
     JavassistInterceptorBuilder(ClassLoader loader, Class<T> proxyInterface, ClassGenerator generator) {
@@ -43,7 +43,7 @@ public class JavassistInterceptorBuilder<T> implements InterceptorBuilder<T>
 
     private static class AbstractBindingBuilder
     {
-       private Map<Method,InterceptorChain> methodMap;
+       private final Map<Method,InterceptorChain> methodMap;
 
        AbstractBindingBuilder() {
           methodMap = new LinkedHashMap<Method,InterceptorChain>();

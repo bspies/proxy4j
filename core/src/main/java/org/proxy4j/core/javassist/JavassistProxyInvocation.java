@@ -5,14 +5,14 @@ import org.proxy4j.core.ProxyInvocation;
 import java.lang.reflect.Method;
 
 /**
- * <p>A Javassist implementation of {@link ProxyInvocation}.</p>
+ * A Javassist implementation of {@link ProxyInvocation}.
  * @author Brennan Spies
  */
 public class JavassistProxyInvocation<T> implements ProxyInvocation<T>
 {
-    private T proxy;
-    private Method method;
-    private Object[] args;
+    private final T proxy;
+    private final Method method;
+    private final Object[] args;
 
     public JavassistProxyInvocation(T proxy, Method method, Object[] args) {
         this.proxy = proxy;

@@ -1,7 +1,7 @@
 package org.proxy4j.core;
 
 /**
- *  <p>A method invocation handler for proxy invocations.</p>
+ *  A method invocation handler for proxy invocations.
  * @author Brennan Spies
  * @since 1.0
  */
