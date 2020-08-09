@@ -1,8 +1,5 @@
 package org.proxy4j.core.reflect;
 
-import java.lang.reflect.Method;
-import java.util.EnumSet;
-
 /**
  * <p>Abstract base class for method extractors.</p>
  * @author Brennan Spies
@@ -11,7 +8,7 @@ public abstract class BaseMethodExtractor implements MethodExtractor
 {
     private boolean includeObjectMethods;
 
-    /************* Properties *****************/
+    /* =========== Properties ============ */
 
     /**
      * True if {@code java.lang.Object} methods should be proxied.
@@ -30,7 +27,7 @@ public abstract class BaseMethodExtractor implements MethodExtractor
         this.includeObjectMethods = include;
     }
 
-    /************* Utility Methods **************/
+    /* ========= Utility Methods ========= */
 
     /**
      * Returns the package name of the class.

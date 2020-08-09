@@ -5,13 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  A cache for classes.
+ * A cache for classes.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class ClassCache
 {
-    private static Map<Key, WeakReference<Class<?>>> classMap
-        = new HashMap<Key,WeakReference<Class<?>>>(); //TODO replace with ConcurrentHashMap?
+    private static final Map<Key, WeakReference<Class<?>>> classMap
+        = new HashMap<>(); //TODO replace with ConcurrentHashMap?
 
     @SuppressWarnings("unchecked")
     public <T> Class<T> getClass(Key key) {
@@ -20,6 +21,6 @@ public class ClassCache
     }
 
     public void cache(Key key, Class<?> type) {
-        classMap.put(key, new WeakReference<Class<?>>(type));
+        classMap.put(key, new WeakReference<>(type));
     }
 }

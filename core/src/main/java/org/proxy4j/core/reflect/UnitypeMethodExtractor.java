@@ -6,6 +6,7 @@ import java.util.EnumSet;
 /**
  * Method extractor for single type.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public abstract class UnitypeMethodExtractor extends BaseMethodExtractor
 {

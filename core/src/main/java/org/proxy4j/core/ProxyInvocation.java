@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 /**
  * Describes a method invocation on a proxy.
  * @author Brennan Spies
- * @since 1.0
+ * @since 1.0.0
  */
 public interface ProxyInvocation<T>
 {
@@ -15,23 +15,23 @@ public interface ProxyInvocation<T>
      * @return The return value of the invocation
      * @throws Throwable If an error is thrown by the invocation
      */
-    public Object invoke(T target) throws Throwable;
+    Object invoke(T target) throws Throwable;
 
     /**
      * Return the method on which the proxy invocation was made.
      * @return The method
      */
-    public Method getMethod();
+    Method getMethod();
 
     /**
      * Returns the proxy on which the method was invoked.
      * @return The proxy
      */
-    public T getProxy();
+    T getProxy();
 
     /**
      * The arguments passed to the target proxy invocation.
      * @return The arguments
      */
-    public Object[] getArguments();
+    Object[] getArguments();
 }

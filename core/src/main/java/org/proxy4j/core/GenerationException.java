@@ -4,7 +4,7 @@ package org.proxy4j.core;
  * Exception indicating a failure in proxy generation.
  *
  * @author Brennan Spies
- * @since 1.0
+ * @since 1.0.0
  */
 public class GenerationException extends RuntimeException
 {

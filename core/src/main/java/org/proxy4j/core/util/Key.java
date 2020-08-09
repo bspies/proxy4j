@@ -3,8 +3,9 @@ package org.proxy4j.core.util;
 import java.lang.ref.WeakReference;
 
 /**
- * <p>Base class for compound keys used in caching proxy types.</p>
-* @author Brennan Spies
+ * Base class for compound keys used in caching proxy types.
+ * @author Brennan Spies
+ * @since 1.0.0
 */
 public abstract class Key
 {
@@ -16,7 +17,7 @@ public abstract class Key
      * @param classLoader The class loader of the proxy
      */
     public Key(ClassLoader classLoader) {
-        this.classLoaderRef = new WeakReference<ClassLoader>(classLoader);
+        this.classLoaderRef = new WeakReference<>(classLoader);
     }
 
     /**

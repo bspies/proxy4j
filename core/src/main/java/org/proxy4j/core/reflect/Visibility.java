@@ -4,8 +4,9 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 
 /**
- * <p>Enumeration of class member visibility.</p>
+ * Enumeration of class member visibility.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public enum Visibility {
 

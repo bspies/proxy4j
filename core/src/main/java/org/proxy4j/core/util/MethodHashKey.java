@@ -10,10 +10,11 @@ import java.util.Set;
 /**
  * A method hash key.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public final class MethodHashKey extends Key
 {
-    private final Set<Method> methods = new WeakHashSet<Method>();
+    private final Set<Method> methods = new WeakHashSet<>();
     private final int hash;
 
     /**

@@ -19,8 +19,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * <p>Javassist implementation of {@link InterceptorBuilder}.</p>
+ * Javassist implementation of {@link InterceptorBuilder}.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class JavassistInterceptorBuilder<T> implements InterceptorBuilder<T>
 {
@@ -46,7 +47,7 @@ public class JavassistInterceptorBuilder<T> implements InterceptorBuilder<T>
        private final Map<Method,InterceptorChain> methodMap;
 
        AbstractBindingBuilder() {
-          methodMap = new LinkedHashMap<Method,InterceptorChain>();
+          methodMap = new LinkedHashMap<>();
        }
 
        AbstractBindingBuilder(Map<Method, InterceptorChain> methodMap) {
@@ -112,7 +113,7 @@ public class JavassistInterceptorBuilder<T> implements InterceptorBuilder<T>
     /* Final step builder */
     private class JavassistInterceptorCreator implements InterceptorCreator<T>
     {
-        private Map<Method,InterceptorChain> methodMap;
+        private final Map<Method,InterceptorChain> methodMap;
 
         JavassistInterceptorCreator(Map<Method,InterceptorChain> methodMap) {
             this.methodMap = methodMap;

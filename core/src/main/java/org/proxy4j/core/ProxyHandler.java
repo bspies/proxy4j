@@ -3,7 +3,7 @@ package org.proxy4j.core;
 /**
  *  A method invocation handler for proxy invocations.
  * @author Brennan Spies
- * @since 1.0
+ * @since 1.0.0
  */
 public interface ProxyHandler<T> {
     /**
@@ -12,5 +12,5 @@ public interface ProxyHandler<T> {
      * @return The return value of the invocation
      * @throws Throwable If an error is thrown from the invocation
      */
-    public Object handle(ProxyInvocation<T> invocation) throws Throwable;
+    Object handle(ProxyInvocation<T> invocation) throws Throwable;
 }

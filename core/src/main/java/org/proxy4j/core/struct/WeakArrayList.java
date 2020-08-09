@@ -6,21 +6,22 @@ import java.util.*;
 /**
  * An array list of weak references.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class WeakArrayList<T> extends AbstractList<T>
 {
     private final List<WeakReference<T>> internalList;
 
     public WeakArrayList() {
-        internalList = new ArrayList<WeakReference<T>>();
+        internalList = new ArrayList<>();
     }
 
     @Override public void add(int index, T element) {
-        internalList.add(index, new WeakReference<T>(element));
+        internalList.add(index, new WeakReference<>(element));
     }
 
     @Override public boolean add(T o) {
-        return internalList.add(new WeakReference<T>(o));
+        return internalList.add(new WeakReference<>(o));
     }
 
     @Override public T get(int index) {
@@ -43,16 +44,18 @@ public class WeakArrayList<T> extends AbstractList<T>
     @Override
     public Iterator<T> iterator()
     {
-        return new Iterator<T>() {
-            private Iterator<WeakReference<T>> internal = internalList.iterator();
+        return new Iterator<>() {
+            private final Iterator<WeakReference<T>> internal = internalList.iterator();
 
             public boolean hasNext() {
                 return internal.hasNext();
             }
+
             public T next() {
                 WeakReference<T> n = internal.next();
-                return n==null?null:n.get();
+                return n == null ? null : n.get();
             }
+
             public void remove() {
                 internal.remove();
             }

@@ -11,6 +11,7 @@ import java.lang.ref.WeakReference;
 /**
  * <p>Abstract base implementation of {@link ProxyFactory}.</p>
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public abstract class BaseProxyFactory implements ProxyFactory
 {
@@ -28,8 +29,7 @@ public abstract class BaseProxyFactory implements ProxyFactory
      * @param preferredClassLoader The class loader for proxy interfaces
      */
     public BaseProxyFactory(ClassLoader preferredClassLoader) {
-        this();
-        this.preferredClassLoader = new WeakReference<ClassLoader>(preferredClassLoader);
+        this.preferredClassLoader = new WeakReference<>(preferredClassLoader);
     }
 
     /**

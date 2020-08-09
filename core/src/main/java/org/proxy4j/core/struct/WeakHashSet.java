@@ -5,8 +5,9 @@ import java.lang.ref.WeakReference;
 import java.util.*;
 
 /**
- * @author Brennan Spies
  * A {@link Set} implementation with weak references to contained elements.
+ * @author Brennan Spies
+ * @since 1.0.0
  */
 public class WeakHashSet<T> extends AbstractSet<T>
 {

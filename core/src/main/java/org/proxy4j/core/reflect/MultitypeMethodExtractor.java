@@ -8,13 +8,14 @@ import java.util.*;
 /**
  * Method extractor for multiple types.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class MultitypeMethodExtractor extends BaseMethodExtractor   //TODO InterfaceMethodExtractor?
 {
     private final SortedSet<Method> methodSet;
 
     public MultitypeMethodExtractor(Class<?>... types) {
-      methodSet = new TreeSet<Method>(SignatureKey.methodComparator());
+      methodSet = new TreeSet<>(SignatureKey.methodComparator());
       for(Class<?> type : types) {
           methodSet.addAll(Arrays.asList(type.getMethods()));
       }
@@ -29,7 +30,7 @@ public class MultitypeMethodExtractor extends BaseMethodExtractor   //TODO Inter
     }
 
     public Collection<Method> getMethods(MethodFilter filter) {
-        Collection<Method> filteredMethods = new ArrayList<Method>();
+        Collection<Method> filteredMethods = new ArrayList<>();
         for(Method m : methodSet) {
             if(filter.accept(m)) {
                 filteredMethods.add(m);

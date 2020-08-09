@@ -8,6 +8,7 @@ import java.util.Comparator;
  * Represents a method key for methods <i>within</i> the same class
  * hierarchy.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class SignatureKey implements Comparable<SignatureKey>
 {
@@ -39,11 +40,7 @@ public class SignatureKey implements Comparable<SignatureKey>
      * @return The method comparator
      */
     public static Comparator<Method> methodComparator() {
-        return new Comparator<Method>() {
-            public int compare(Method m1, Method m2) {
-                return new SignatureKey(m1).compareTo(new SignatureKey(m2));
-            }
-        };
+        return Comparator.comparing(SignatureKey::new);
     }
 
     /**
@@ -94,7 +91,7 @@ public class SignatureKey implements Comparable<SignatureKey>
     public int compareTo(SignatureKey other) {
         int comparison = name.compareTo(other.name);
         if(comparison==0) {
-          comparison = new Integer(parameterTypes.length).compareTo(other.parameterTypes.length);
+          comparison = Integer.compare(parameterTypes.length, other.parameterTypes.length);
           if(comparison==0) {
              for(int i=0; i<parameterTypes.length; i++) {
                  if((comparison=parameterTypes[i].getName().compareTo(other.parameterTypes[i].getName()))!=0)

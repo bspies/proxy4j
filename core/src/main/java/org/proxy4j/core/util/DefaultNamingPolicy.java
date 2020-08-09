@@ -1,8 +1,9 @@
 package org.proxy4j.core.util;
 
 /**
- * <p>A default implementation of {@link NamingPolicy}.</p>
+ * A default implementation of {@link NamingPolicy}.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class DefaultNamingPolicy implements NamingPolicy
 {

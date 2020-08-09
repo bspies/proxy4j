@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 /**
  * {@link org.proxy4j.core.ProxyFactory ProxyFactory} implementation using <a href="http://cglib.sourceforge.net/">CGLIB</a>.
  * @author Brennan Spies
- * @since 1.0
+ * @since 1.0.0
  */
 public class CglibProxyFactory extends BaseProxyFactory
 {
@@ -87,7 +87,7 @@ public class CglibProxyFactory extends BaseProxyFactory
      * @see org.proxy4j.core.ProxyFactory#buildInterceptor(Class) 
      */
     public <T> InterceptorBuilder<T> buildInterceptor(Class<T> proxyClass) {
-        return new CglibInterceptorBuilder<T>(getProxyClassLoader(proxyClass));
+        return new CglibInterceptorBuilder<>(getProxyClassLoader(proxyClass));
     }
 
     //retrives or creates the FastClass for the proxy
@@ -126,13 +126,13 @@ public class CglibProxyFactory extends BaseProxyFactory
     /** CGLIB adapter for a {@code Provider} */
     private static class ProviderAdapter implements Dispatcher
     {
-        private Provider<?> provider;
+        private final Provider<?> provider;
 
         ProviderAdapter(Provider<?> provider) {
             this.provider = provider;
         }
 
-        public Object loadObject() throws Exception {
+        public Object loadObject() {
             return provider.get();
         }
     }
@@ -140,7 +140,7 @@ public class CglibProxyFactory extends BaseProxyFactory
     /** CGLIB adapter for a {@code ProxyInvocationHandler} */
     private static class InvocationHandlerAdapter implements net.sf.cglib.proxy.MethodInterceptor
     {
-        private ProxyHandler<?> handler;
+        private final ProxyHandler<?> handler;
 
         InvocationHandlerAdapter(ProxyHandler<?> handler) {
             this.handler = handler;

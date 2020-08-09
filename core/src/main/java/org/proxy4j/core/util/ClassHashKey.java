@@ -7,13 +7,14 @@ import java.util.Collection;
 import java.util.Set;
 
 /**
- * <p>{@link Key} implementation that uses the classes implmented or extended
- * by the proxy class.</p>
+ * {@link Key} implementation that uses the classes implmented or extended
+ * by the proxy class.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public final class ClassHashKey extends Key
 {
-    private final Set<Class<?>> classes = new WeakHashSet<Class<?>>();
+    private final Set<Class<?>> classes = new WeakHashSet<>();
     private final int hash;
     
     /**
@@ -34,8 +35,9 @@ public final class ClassHashKey extends Key
      */
     public ClassHashKey(ClassLoader loader, Collection<Class<?>> classes) {
         super(loader);
-        if(classes.size()==0)
+        if(classes.size()==0) {
             throw new IllegalArgumentException("Must have at least one java.lang.Class to construct the Key");
+        }
         this.classes.addAll(classes);
         //cache the hash code value
         hash = internalHash();

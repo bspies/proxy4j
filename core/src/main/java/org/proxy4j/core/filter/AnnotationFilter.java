@@ -4,9 +4,10 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 /**
- * <p>An implementation of {@link MethodFilter} that selects methods
- * marked with a given annotation.</p>
+ * An implementation of {@link MethodFilter} that selects methods
+ * marked with a given annotation.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class AnnotationFilter<T extends Annotation> implements MethodFilter
 {
@@ -17,7 +18,7 @@ public class AnnotationFilter<T extends Annotation> implements MethodFilter
     }
 
     public static <A extends Annotation> AnnotationFilter<A> forAnnotation(Class<A> annotation) {
-        return new AnnotationFilter<A>(annotation);
+        return new AnnotationFilter<>(annotation);
     }
 
     /**

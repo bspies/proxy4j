@@ -17,8 +17,9 @@ import java.text.MessageFormat;
 import java.util.*;
 
 /**
- * <p>Generates proxy classes using Javassist.</p>
+ * Generates proxy classes using Javassist.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 class ClassGenerator
 {
@@ -26,7 +27,7 @@ class ClassGenerator
     private final ClassCache cache = new ClassCache();
     Properties templates = new Properties();
     private final Map<ClassLoader, ClassPool> classPoolMap =
-            new WeakHashMap<ClassLoader, ClassPool>();
+            new WeakHashMap<>();
 
     /**
      * Creates a {@code ClassGenerator} with the given naming policy.
@@ -409,9 +410,9 @@ class ClassGenerator
      */
     private static class MethodSignature
     {
-        private String name;
-        private Class<?> returnType;
-        private Class<?>[] parameterTypes;
+        private final String name;
+        private final Class<?> returnType;
+        private final Class<?>[] parameterTypes;
         private Class<?>[] exceptionTypes;
 
         MethodSignature(Class<?> returnType, String name, Class<?>... parameterTypes) {

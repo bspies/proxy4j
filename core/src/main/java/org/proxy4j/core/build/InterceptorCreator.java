@@ -6,6 +6,7 @@ import org.proxy4j.core.GenerationException;
  * The final builder used internally by {@link InterceptorBuilder}
  * to build the proxy when the minimal required state has been reached.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public interface InterceptorCreator<T> {
     /**
@@ -14,5 +15,5 @@ public interface InterceptorCreator<T> {
      * @return The interceptor proxy
      * @throws GenerationException If an error occurs generating the proxy
      */
-    public T create() throws GenerationException;
+    T create() throws GenerationException;
 }

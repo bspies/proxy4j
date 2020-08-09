@@ -6,9 +6,10 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Method;
 
 /**
- * <p>JDK {@link java.lang.reflect.Proxy Proxy}-based implementation of
- * a {@code MethodInvocation}.</p>
+ * JDK {@link java.lang.reflect.Proxy Proxy}-based implementation of
+ * a {@code MethodInvocation}.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class JdkMethodInvocation implements MethodInvocation
 {

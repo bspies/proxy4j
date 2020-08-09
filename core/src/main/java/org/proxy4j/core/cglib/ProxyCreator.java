@@ -12,8 +12,9 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 /**
- * <p>Creates method-level proxies using a {@link CallbackMapper}.</p>
+ * Creates method-level proxies using a {@link CallbackMapper}.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 class ProxyCreator<T>
 {
@@ -40,7 +41,7 @@ class ProxyCreator<T>
      * @return A map of methods to callbacks
      */
     private Map<Method, Callback> getCallbackMap(CallbackMapper mapper) {
-        Map<Method,Callback> callbackMap = new HashMap<Method,Callback>();
+        Map<Method,Callback> callbackMap = new HashMap<>();
         for(Method m : methods) {
            callbackMap.put(m, mapper.map(m));
         }
@@ -52,13 +53,13 @@ class ProxyCreator<T>
     }
 
     private Callback[] getCallbacks(Map<Method,Callback> callbackMap) {
-       Set<Callback> callbackSet = new IdentityHashSet<Callback>(callbackMap.values());
-       return callbackSet.toArray(new Callback[callbackSet.size()]); 
+       Set<Callback> callbackSet = new IdentityHashSet<>(callbackMap.values());
+       return callbackSet.toArray(new Callback[callbackSet.size()]);
     }
 
     //TODO replace with BasicMethodExtractor
     private Collection<Method> getMethods(Class<?> superType, Class<?>[] interfaces) {
-        ArrayList<Method> mlist = new ArrayList<Method>();
+        ArrayList<Method> mlist = new ArrayList<>();
         Enhancer.getMethods(superType, interfaces, mlist);
         return mlist;
     }

@@ -9,6 +9,7 @@ import java.util.Collection;
  * Interface for any class that can extract methods from a class for the purpose
  * of proxying them.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public interface MethodExtractor {
     /**
@@ -37,5 +38,5 @@ public interface MethodExtractor {
      * True if the {@code MethodExtractor} extracts {@code Object} methods.
      * @return True if {@code Object} methods extracted
      */
-    public boolean isIncludeObjectMethods();
+    boolean isIncludeObjectMethods();
 }

@@ -48,7 +48,7 @@ class JdkInterceptorBuilder<T> implements InterceptorBuilder<T> {
        private final Map<SignatureKey,InterceptorChain> methodMap;
 
        AbstractBindingBuilder() {
-          methodMap = new LinkedHashMap<SignatureKey,InterceptorChain>();
+          methodMap = new LinkedHashMap<>();
        }
 
        AbstractBindingBuilder(Map<SignatureKey, InterceptorChain> methodMap) {
@@ -70,7 +70,7 @@ class JdkInterceptorBuilder<T> implements InterceptorBuilder<T> {
      */
     private class JdkInterceptorCreator extends AbstractBindingBuilder implements InterceptorCreator<T>
     {
-        private Map<SignatureKey,InterceptorChain> methodMap;
+        private final Map<SignatureKey,InterceptorChain> methodMap;
 
         JdkInterceptorCreator(Map<SignatureKey,InterceptorChain> methodMap) {
             this.methodMap = methodMap;
@@ -152,8 +152,8 @@ class JdkInterceptorBuilder<T> implements InterceptorBuilder<T> {
      */
     private static class InterceptorInvocationHandler implements InvocationHandler
     {
-        private Map<SignatureKey,InterceptorChain> interceptors;
-        private Object target;
+        private final Map<SignatureKey,InterceptorChain> interceptors;
+        private final Object target;
 
         InterceptorInvocationHandler(Object target, Map<SignatureKey,InterceptorChain> interceptors) {
           this.target = target;

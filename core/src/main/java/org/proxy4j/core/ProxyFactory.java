@@ -9,7 +9,7 @@ import java.lang.annotation.Annotation;
 /**
  * A factory interface for creating different types of proxies.
  * @author Brennan Spies
- * @since 1.0
+ * @since 1.0.0
  */
 public interface ProxyFactory {
     /**
@@ -21,7 +21,7 @@ public interface ProxyFactory {
      * @return The proxy
      * @throws GenerationException If an error occurs creating the proxy
      */
-   public <T> T createProxy(Class<T> proxyClass, Provider<T> provider) throws GenerationException;
+    <T> T createProxy(Class<T> proxyClass, Provider<T> provider) throws GenerationException;
 
     /**
      * Creates a proxy where method invocations on the proxy are passed to a single
@@ -32,7 +32,7 @@ public interface ProxyFactory {
      * @return The proxy
      * @throws GenerationException If an error occurs creating the proxy
      */
-    public <T> T createProxy(Class<T> proxyClass, ProxyHandler<T> handler) throws GenerationException;
+    <T> T createProxy(Class<T> proxyClass, ProxyHandler<T> handler) throws GenerationException;
 
     /**
      * Creates a proxy that implements multiple interfaces where invocations on that proxy are
@@ -44,7 +44,7 @@ public interface ProxyFactory {
      * @return The proxy
      * @throws GenerationException If an error occurs creating the proxy
      */
-    public Object createProxy(Class<?>[] proxyInterfaces, ProxyHandler<?> handler) throws GenerationException;
+    Object createProxy(Class<?>[] proxyInterfaces, ProxyHandler<?> handler) throws GenerationException;
 
     /**
      * Creates a "protection" proxy where method invocations on the proxy are intercepted by the
@@ -57,7 +57,7 @@ public interface ProxyFactory {
      * @return The proxy
      * @throws GenerationException If an error occurs creating the proxy
      */
-    public <T> T createProxy(Class<T> proxyClass, T target, Class<? extends Annotation> marker, MethodInterceptor... interceptors) throws GenerationException;
+    <T> T createProxy(Class<T> proxyClass, T target, Class<? extends Annotation> marker, MethodInterceptor... interceptors) throws GenerationException;
 
     /**
      * Creates a new builder for constructing an interceptor or "protection" proxy. The builder
@@ -66,5 +66,5 @@ public interface ProxyFactory {
      * @param <T> The proxy type
      * @return The builder
      */
-    public <T> InterceptorBuilder<T> buildInterceptor(Class<T> proxyClass);
+    <T> InterceptorBuilder<T> buildInterceptor(Class<T> proxyClass);
 }

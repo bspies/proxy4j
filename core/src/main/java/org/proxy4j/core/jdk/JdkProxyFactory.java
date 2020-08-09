@@ -8,14 +8,12 @@ import org.proxy4j.core.build.InterceptorBuilder;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
  * The proxy factory implementation using the JDK proxy implementation.
  * @author Brennan Spies
- * @since 1.0
+ * @since 1.0.0
  */
 public class JdkProxyFactory extends BaseProxyFactory
 {
@@ -35,11 +33,7 @@ public class JdkProxyFactory extends BaseProxyFactory
     public <T> T createProxy(Class<T> proxyInterface, final Provider<T> provider) throws GenerationException {
         return proxyInterface.cast(Proxy.newProxyInstance(getProxyClassLoader(proxyInterface),
             new Class[]{ proxyInterface },
-            new InvocationHandler() {
-                public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                    return method.invoke(provider.get(), args);
-                }
-            })
+                (proxy, method, args) -> method.invoke(provider.get(), args))
         );
     }
 
@@ -49,35 +43,25 @@ public class JdkProxyFactory extends BaseProxyFactory
      */
     public <T> T createProxy(Class<T> proxyInterface, final ProxyHandler<T> handler) throws GenerationException {
         return proxyInterface.cast(Proxy.newProxyInstance(getProxyClassLoader(proxyInterface),
-            new Class[]{proxyInterface},
-            new InvocationHandler() {
-                @SuppressWarnings("unchecked")
-                public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                    return handler.handle(new JdkProxyInvocation(proxy, method, args)); 
-                }
-            })
+            new Class[] {proxyInterface},
+                (proxy, method, args) -> handler.handle(new JdkProxyInvocation(proxy, method, args)))
         );
     }
 
     /**
-     * @see org.proxy4j.core.ProxyFactory#createProxy(Class[], org.proxy4j.core.ProxyHandler)
+     * {@inheritDoc}
      */
     public Object createProxy(Class<?>[] proxyInterfaces, final ProxyHandler<?> handler) throws GenerationException {
         if(proxyInterfaces.length==0)
             throw new IllegalArgumentException("Must define at least 1 proxy interface");
         return Proxy.newProxyInstance(getProxyClassLoader(proxyInterfaces[0]),
             proxyInterfaces,
-            new InvocationHandler() {
-                @SuppressWarnings("unchecked")
-                public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                    return handler.handle(new JdkProxyInvocation(proxy, method, args));
-                }
-            }
+                (proxy, method, args) -> handler.handle(new JdkProxyInvocation(proxy, method, args))
         );
     }
 
     /**
-     * @see org.proxy4j.core.ProxyFactory#buildInterceptor(Class) 
+     * {@inheritDoc}
      */
     public <T> InterceptorBuilder<T> buildInterceptor(Class<T> proxyClass) {
         return new JdkInterceptorBuilder<T>(getProxyClassLoader(proxyClass), proxyClass);

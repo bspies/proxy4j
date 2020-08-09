@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 /**
  * CGLIB-based implementation of {@link MethodInvocation}
  * @author Brennan Spies
+ * @since 1.0.0
  */
 class CglibMethodInvocation implements MethodInvocation
 {

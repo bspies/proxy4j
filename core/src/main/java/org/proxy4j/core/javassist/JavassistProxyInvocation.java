@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 /**
  * A Javassist implementation of {@link ProxyInvocation}.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class JavassistProxyInvocation<T> implements ProxyInvocation<T>
 {

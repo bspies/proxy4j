@@ -8,10 +8,11 @@ import java.util.*;
 /**
  * Extracts method information from the given type.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class BasicMethodExtractor extends UnitypeMethodExtractor
 {
-    private SortedSet<Method> methodSet;
+    private final SortedSet<Method> methodSet;
 
     /**
      * Creates a {@code BasicMethodExtractor} with the primary type
@@ -19,7 +20,7 @@ public class BasicMethodExtractor extends UnitypeMethodExtractor
      */
     public BasicMethodExtractor(Class<?> owningType) {
        super(owningType);
-       methodSet = new TreeSet<Method>(SignatureKey.methodComparator());
+       methodSet = new TreeSet<>(SignatureKey.methodComparator());
        buildMap();
     }
 
@@ -29,8 +30,7 @@ public class BasicMethodExtractor extends UnitypeMethodExtractor
                 break;
             for (Method m : current.getDeclaredMethods()) {
                 if(isProxyable(m)) {
-                    if(!methodSet.contains(m))
-                        methodSet.add(m);
+                    methodSet.add(m);
                 }
             }
         }
@@ -47,7 +47,7 @@ public class BasicMethodExtractor extends UnitypeMethodExtractor
      * {@inheritDoc}
      */
     public Collection<Method> getPublicMethods() {
-        Collection<Method> publicMethods = new ArrayList<Method>();
+        Collection<Method> publicMethods = new ArrayList<>();
         for(Method m : methodSet) {
           if(Visibility.getVisibility(m)==Visibility.PUBLIC)
             publicMethods.add(m);
@@ -59,7 +59,7 @@ public class BasicMethodExtractor extends UnitypeMethodExtractor
      * {@inheritDoc}
      */
     public Collection<Method> getMethods(MethodFilter filter) {
-        Collection<Method> results = new ArrayList<Method>();
+        Collection<Method> results = new ArrayList<>();
         for(Method m : methodSet) {
             if(filter.accept(m)) {
                 results.add(m);

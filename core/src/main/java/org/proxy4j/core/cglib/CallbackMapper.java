@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 /**
  * Interface used by {@link ProxyCreator} to map methods to callbacks.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 interface CallbackMapper {
     /**

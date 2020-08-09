@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 /**
  * Javassist implementation for a method invocation.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public abstract class JavassistMethodInvocation<T> implements MethodInvocation
 {

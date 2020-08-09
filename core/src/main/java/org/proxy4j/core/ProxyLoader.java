@@ -10,6 +10,7 @@ import java.lang.annotation.Target;
  * Qualifying annotation used to inject the proxy {@link ClassLoader}
  * into the {@link ProxyFactory}.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 @Qualifier
 @Target(ElementType.PARAMETER)

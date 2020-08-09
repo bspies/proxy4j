@@ -14,6 +14,7 @@ package org.proxy4j.core.build;
  * One or more intermediate <code>using()</code> methods will be called prior to creating the
  * final interceptor proxy.
  * @author Brennan Spies
+ * @since 1.0.0
  * @see org.proxy4j.core.ProxyFactory#buildInterceptor(Class)
  */
 public interface InterceptorBuilder<T> {
@@ -22,5 +23,5 @@ public interface InterceptorBuilder<T> {
      * @param target The target
      * @return An intermediate builder for binding interceptors
      */
-    public InterceptorBindingBuilder<T> on(T target);
+    InterceptorBindingBuilder<T> on(T target);
 }

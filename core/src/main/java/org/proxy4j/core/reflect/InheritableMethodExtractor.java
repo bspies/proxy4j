@@ -9,11 +9,12 @@ import java.util.*;
  * A two-level {@code MethodExtractor} where the super type acts as an additional source of information,
  * e.g. accessing annotations in {@link org.proxy4j.core.filter.AnnotationFilter method filters}.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class InheritableMethodExtractor extends UnitypeMethodExtractor
 {
-    private Class<?> superType;
-    private Map<Method,Method> methodPairMap;
+    private final Class<?> superType;
+    private final Map<Method,Method> methodPairMap;
 
     /**
      * Creates a {@code MethodExtractor} with a super type that acts as an additional
@@ -26,14 +27,14 @@ public class InheritableMethodExtractor extends UnitypeMethodExtractor
     public <T> InheritableMethodExtractor(Class<T> owningType, Class<? super T> superType) {
        super(owningType);
        this.superType = superType;
-       this.methodPairMap = new TreeMap<Method,Method>(SignatureKey.methodComparator());
+       this.methodPairMap = new TreeMap<>(SignatureKey.methodComparator());
        buildMethodMap();
     }
 
     //builds the method map
     private void buildMethodMap() {
         //get all supertype methods
-        Map<SignatureKey,Method> superTypeMap = new HashMap<SignatureKey,Method>();
+        Map<SignatureKey,Method> superTypeMap = new HashMap<>();
         for(Method m : superType.getMethods()) {
             superTypeMap.put(new SignatureKey(m), m);
         }
@@ -61,7 +62,7 @@ public class InheritableMethodExtractor extends UnitypeMethodExtractor
      * {@inheritDoc}
      */
     public Collection<Method> getPublicMethods() {
-        Collection<Method> publicMethods = new ArrayList<Method>();
+        Collection<Method> publicMethods = new ArrayList<>();
         for(Method m : methodPairMap.keySet()) {
             if(Visibility.getVisibility(m)==Visibility.PUBLIC)
                 publicMethods.add(m);
@@ -75,7 +76,7 @@ public class InheritableMethodExtractor extends UnitypeMethodExtractor
      * @return The filtered methods
      */
     public Collection<Method> getMethods(MethodFilter filter) {
-        Collection<Method> methods = new ArrayList<Method>();
+        Collection<Method> methods = new ArrayList<>();
         for(Method m : methodPairMap.keySet()) {
            Method other;
            if(filter.accept(m) || ((other=methodPairMap.get(m))!=null && filter.accept(other)))

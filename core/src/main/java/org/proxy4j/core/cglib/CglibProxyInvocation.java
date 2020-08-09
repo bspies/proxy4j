@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 
 /**
  * A CGLIB implementation of {@link org.proxy4j.core.ProxyInvocation}.
+ * @since 1.0.0
  */
 class CglibProxyInvocation<T> implements ProxyInvocation<T>
 {

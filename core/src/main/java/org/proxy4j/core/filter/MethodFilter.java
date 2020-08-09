@@ -3,9 +3,10 @@ package org.proxy4j.core.filter;
 import java.lang.reflect.Method;
 
 /**
- * <p>Filter used by proxy creators to select which methods should be
- * intercepted.</p>
+ * Filter used by proxy creators to select which methods should be
+ * intercepted.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public interface MethodFilter {
     /**

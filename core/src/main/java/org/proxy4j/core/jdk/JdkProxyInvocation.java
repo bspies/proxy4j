@@ -6,7 +6,8 @@ import java.lang.reflect.Method;
 
 /**
  * JDK proxy implementation of the proxy invocation.
-* @author Brennan Spies
+ * @author Brennan Spies
+ * @since 1.0.0
 */
 class JdkProxyInvocation<T> implements ProxyInvocation<T>
 {

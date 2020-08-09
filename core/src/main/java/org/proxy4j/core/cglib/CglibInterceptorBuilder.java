@@ -19,10 +19,11 @@ import java.util.*;
  * CGLIB implementation of {@link InterceptorBuilder} and related intermediate
  * builders.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 class CglibInterceptorBuilder<T> implements InterceptorBuilder<T>
 {
-    private ClassLoader loader;
+    private final ClassLoader loader;
     private ProxyCreator<T> proxyCreator;
     private T target;
 
@@ -33,7 +34,7 @@ class CglibInterceptorBuilder<T> implements InterceptorBuilder<T>
     @SuppressWarnings("unchecked")
     public InterceptorBindingBuilder<T> on(T target) {
         this.target = target;
-        proxyCreator = new ProxyCreator<T>(loader, (Class<T>)target.getClass());
+        proxyCreator = new ProxyCreator<>(loader, (Class<T>) target.getClass());
         return new CglibInterceptorBindingBuilder();
     }
 
@@ -57,7 +58,7 @@ class CglibInterceptorBuilder<T> implements InterceptorBuilder<T>
 
     private abstract class AbstractMethodBinder implements MethodBinder<T>
     {
-        private BindingCallbackMapper mapper;
+        private final BindingCallbackMapper mapper;
 
         AbstractMethodBinder() {
             mapper = new BindingCallbackMapper();
@@ -113,7 +114,7 @@ class CglibInterceptorBuilder<T> implements InterceptorBuilder<T>
         }
 
         private Collection<Method> getFilteredMethods(MethodFilter filter) {
-            Set<Method> filteredMethods = new HashSet<Method>();
+            Set<Method> filteredMethods = new HashSet<>();
             for(Method m : proxyCreator.getProxyableMethods()) {
                if(filter.accept(m))
                    filteredMethods.add(m);
@@ -147,7 +148,7 @@ class CglibInterceptorBuilder<T> implements InterceptorBuilder<T>
      */
     private class CglibInterceptorCreator implements InterceptorCreator<T>
     {
-        private CallbackMapper mapper;
+        private final CallbackMapper mapper;
 
         CglibInterceptorCreator(CallbackMapper mapper) {
             this.mapper = mapper;
@@ -167,10 +168,10 @@ class CglibInterceptorBuilder<T> implements InterceptorBuilder<T>
      */
     private static class BindingCallbackMapper implements CallbackMapper
     {
-        private Map<Method,Callback> map;
+        private final Map<Method,Callback> map;
 
         public BindingCallbackMapper() {
-            map = new HashMap<Method,Callback>();
+            map = new HashMap<>();
         }
 
         void bind(Method m, Callback callback) {
@@ -188,7 +189,7 @@ class CglibInterceptorBuilder<T> implements InterceptorBuilder<T>
     /** CGLIB adapter for invoking an {@code InterceptorChain}. */
     private static class InterceptorChainCallback implements net.sf.cglib.proxy.MethodInterceptor
     {
-        private InterceptorChain chain;
+        private final InterceptorChain chain;
         private Object target;
 
         InterceptorChainCallback(Object target, MethodInterceptor... interceptors) {
@@ -208,8 +209,8 @@ class CglibInterceptorBuilder<T> implements InterceptorBuilder<T>
     /** CGLIB adapter for invoking a {@link MethodInterceptor}. */
     private static class InterceptorCallback implements net.sf.cglib.proxy.MethodInterceptor
     {
-        private MethodInterceptor interceptor;
-        private Object target;
+        private final MethodInterceptor interceptor;
+        private final Object target;
 
         InterceptorCallback(Object target, MethodInterceptor interceptor) {
             this.target = target;

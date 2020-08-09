@@ -3,6 +3,7 @@ package org.proxy4j.core.util;
 /**
  * The naming policy for the proxy class.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public interface NamingPolicy {
     /**
@@ -12,5 +13,5 @@ public interface NamingPolicy {
      * @param key The lookup key for the proxy class
      * @return The name of the proxy class
      */
-    public String getProxyName(String baseClassName, Object key);
+    String getProxyName(String baseClassName, Object key);
 }

@@ -5,8 +5,9 @@ import net.sf.cglib.proxy.CallbackFilter;
 import net.sf.cglib.proxy.Enhancer;
 
 /**
- * <p>Generates proxy classes using CGLIB.</p>
+ * Generates proxy classes using CGLIB.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 abstract class ClassGenerator<T>
 {
@@ -44,9 +45,9 @@ abstract class ClassGenerator<T>
      */
     static class MultiTypeGenerator<T> extends ClassGenerator<T>
     {
-        private ClassLoader loader;
+        private final ClassLoader loader;
         private Class<T> superType;
-        private Class<?>[] proxyInterfaces;
+        private final Class<?>[] proxyInterfaces;
 
         private MultiTypeGenerator(ClassLoader loader, Class<?>[] proxyInterfaces) {
             this.loader = loader;
@@ -84,7 +85,7 @@ abstract class ClassGenerator<T>
      * @return The class generator
      */
     static <T> ClassGenerator<T> forType(ClassLoader loader, Class<T> type) {
-       return new SingleTypeGenerator<T>(loader, type);
+       return new SingleTypeGenerator<>(loader, type);
     }
 
     /**
@@ -98,7 +99,7 @@ abstract class ClassGenerator<T>
     }
 
     static <T> ClassGenerator<T> forTypes(ClassLoader loader, Class<T> superType, Class<?>... interfaces) {
-        return new MultiTypeGenerator<T>(loader, superType, interfaces);
+        return new MultiTypeGenerator<>(loader, superType, interfaces);
     }
 
     /**

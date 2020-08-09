@@ -11,7 +11,7 @@ import java.lang.annotation.Annotation;
  * methods on the target type to the given interceptors. Clients should not refer to
  * this class directly but instead use the fluent API documented {@link InterceptorBuilder here}.
  * @author Brennan Spies
- * @since 1.0
+ * @since 1.0.0
  */
 public interface InterceptorBindingBuilder<T> extends MethodBinder<T> {
     /**
@@ -21,7 +21,7 @@ public interface InterceptorBindingBuilder<T> extends MethodBinder<T> {
      * @param interceptors The interceptor chain
      * @return The final builder, used to create proxy
      */
-    public InterceptorCreator<T> using(MethodFilter filter, MethodInterceptor... interceptors);
+    InterceptorCreator<T> using(MethodFilter filter, MethodInterceptor... interceptors);
 
     /**
      * Uses the given method filter to selectively bind methods on the class of type {@code T} to
@@ -31,7 +31,7 @@ public interface InterceptorBindingBuilder<T> extends MethodBinder<T> {
      * @param factory The interceptor factory
      * @return The final builder, used to create the proxy
      */
-    public InterceptorCreator<T> using(MethodFilter filter, InterceptorFactory factory);
+    InterceptorCreator<T> using(MethodFilter filter, InterceptorFactory factory);
 
     /**
      * Uses the annotation to selectively bind methods on the class of type {@code T} to the given
@@ -40,5 +40,5 @@ public interface InterceptorBindingBuilder<T> extends MethodBinder<T> {
      * @param interceptors The interceptor chain
      * @return The final builder, used to create the proxy
      */
-    public InterceptorCreator<T> using(Class<? extends Annotation> methodMarker, MethodInterceptor... interceptors);
+    InterceptorCreator<T> using(Class<? extends Annotation> methodMarker, MethodInterceptor... interceptors);
 }

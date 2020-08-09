@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Factory which can be used to create per-method instances of interceptor(s).
  * @author Brennan Spies
- * @since 1.0
+ * @since 1.0.0
  */
 public interface InterceptorFactory {
     /**
@@ -16,5 +16,5 @@ public interface InterceptorFactory {
      * @param method The method to be intercepted
      * @return The interceptor chain (in order of invocation)
      */
-    public List<MethodInterceptor> getInterceptors(Method method);
+    List<MethodInterceptor> getInterceptors(Method method);
 }

@@ -10,9 +10,10 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 
 /**
- * <p>{@link org.proxy4j.core.ProxyFactory ProxyFactory} implementation using
- * <a href="http://www.csg.is.titech.ac.jp/~chiba/javassist/">Javassist</a>.</p>
+ * {@link org.proxy4j.core.ProxyFactory ProxyFactory} implementation using
+ * <a href="http://www.csg.is.titech.ac.jp/~chiba/javassist/">Javassist</a>.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public class JavassistProxyFactory extends BaseProxyFactory
 {
@@ -32,8 +33,7 @@ public class JavassistProxyFactory extends BaseProxyFactory
     }
 
     /**
-     * 
-     * @see org.proxy4j.core.ProxyFactory#createProxy(Class, javax.inject.Provider)
+     * {@inheritDoc}
      */
     public <T> T createProxy(Class<T> proxyType, Provider<T> provider) throws GenerationException {
         try {
@@ -45,8 +45,7 @@ public class JavassistProxyFactory extends BaseProxyFactory
     }
 
     /**
-     * 
-     * @see org.proxy4j.core.ProxyFactory#createProxy(Class, org.proxy4j.core.ProxyHandler)
+     * {@inheritDoc}
      */
     public <T> T createProxy(Class<T> proxyType, ProxyHandler<T> handler) throws GenerationException {
         try {
@@ -58,8 +57,7 @@ public class JavassistProxyFactory extends BaseProxyFactory
     }
 
     /**
-     *
-     * @see org.proxy4j.core.ProxyFactory#createProxy(Class[], org.proxy4j.core.ProxyHandler)
+     *{@inheritDoc}
      */
     public Object createProxy(Class<?>[] proxyInterfaces, ProxyHandler<?> handler) throws GenerationException {
         assertInterfaces(proxyInterfaces);
@@ -72,10 +70,10 @@ public class JavassistProxyFactory extends BaseProxyFactory
     }
 
     /**
-     * @see org.proxy4j.core.ProxyFactory#buildInterceptor(Class)
+     * {@inheritDoc}
      */
     public <T> InterceptorBuilder<T> buildInterceptor(Class<T> proxyClass) {
-        return new JavassistInterceptorBuilder<T>(getProxyClassLoader(proxyClass),
+        return new JavassistInterceptorBuilder<>(getProxyClassLoader(proxyClass),
                 proxyClass, classGenerator);
     }
 }

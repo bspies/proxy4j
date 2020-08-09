@@ -9,6 +9,7 @@ import java.util.EnumSet;
  * An enumeration of other modifiers besides {@link Visibility} that are of interest to
  * the {@link MethodExtractor}.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public enum Modifier {
 
@@ -22,7 +23,7 @@ public enum Modifier {
      */
     public static EnumSet<Modifier> getModifiers(Member member) {
       int mod = member.getModifiers();
-      Collection<Modifier> mods = new ArrayList<Modifier>();
+      Collection<Modifier> mods = new ArrayList<>();
       if(java.lang.reflect.Modifier.isStatic(mod))
           mods.add(STATIC);
       if(java.lang.reflect.Modifier.isFinal(mod)) {

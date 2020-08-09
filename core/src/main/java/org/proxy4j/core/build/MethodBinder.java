@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 /**
  * Binds a method to a chain of interceptors.
  * @author Brennan Spies
+ * @since 1.0.0
  */
 public interface MethodBinder<T> {
     /**
@@ -15,5 +16,5 @@ public interface MethodBinder<T> {
      * @param interceptors The chain of interceptors
      * @return A builder for binding further methods
      */
-    public MethodBindingBuilder<T> using(Method method, MethodInterceptor... interceptors);
+    MethodBindingBuilder<T> using(Method method, MethodInterceptor... interceptors);
 }

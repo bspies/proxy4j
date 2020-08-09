@@ -3,9 +3,9 @@ package org.proxy4j.core.struct;
 import java.util.*;
 
 /**
- * <p>A {@link Set} implementation based on reference (not object) equality. This
+ * A {@link Set} implementation based on reference (not object) equality. This
  * is an intentional violation of the {@link Set#equals(Object)} contract for specialized
- * purposes. Uses a backing instance of {@link java.util.IdentityHashMap}.</p>
+ * purposes. Uses a backing instance of {@link java.util.IdentityHashMap}.
  * @author Brennan Spies
  */
 public class IdentityHashSet<T> extends AbstractSet<T> implements Set<T>
@@ -14,11 +14,11 @@ public class IdentityHashSet<T> extends AbstractSet<T> implements Set<T>
     private static final Object NULL_OBJ = new Object();
 
     public IdentityHashSet() {
-       idmap = new IdentityHashMap<T,Object>();
+       idmap = new IdentityHashMap<>();
     }
 
     public IdentityHashSet(int expectedMaxSize) {
-       idmap = new IdentityHashMap<T,Object>(expectedMaxSize);
+       idmap = new IdentityHashMap<>(expectedMaxSize);
     }
 
     public IdentityHashSet(Collection<? extends T> c) {
