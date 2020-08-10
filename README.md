@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/bspies/proxy4j.svg?branch=master)](https://travis-ci.org/bspies/proxy4j)
+
 Introduction
 ============
 
